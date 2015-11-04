@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+
+<html>
+{if $conecta eq "logado"}    
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Olá, {$nome}<br /><a href = "./controller/controllerLogout.php"> Sair </a></div>
+    </body>
+</html>
+{else}
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Falha ao realizar o login.</div>
+    </body>
+</html>
+{/if}

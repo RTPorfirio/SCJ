@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-            echo "Ola mundo";
-        ?>
-    </body>
-</html>
+<?php
+
+require_once './configs/sm.php';
+
+if (isset($_GET['erro'])) {
+    if ($_GET['erro'] == 1) {
+        $sm->assign("erro", "Usuário deve ser informado");
+    } else {
+        if ($_GET['erro'] == 2) {
+            $sm->assign("erro", "Senha deve ser informada");
+        } else {
+
+            $sm->assign("erro", "Usuário ou senha inválidos");
+        }
+    }
+} else {
+    $sm->assign("erro", "");
+   
+}
+ $sm->display("index.html");
+?>

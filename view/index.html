@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cris Joias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="controller/controllerLogin.php" method="post">
+            <table>
+                <tr>
+                    <td><label for="usuario">Usuário</label></td>
+                    <td><input type="text" id="usuario" name="usuario" placeholder="Nome de Usuário" maxlength="10"/></td>
+                </tr>
+                <tr>
+                    <td><label for="senha">Senha</label></td>
+                    <td><input type="password" id="senha" name="senha" placeholder="************" maxlength="10"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Login" /><br>
+                        <span id="erro">{$erro}</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
