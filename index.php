@@ -1,5 +1,5 @@
 <?php
-
+//ola mundo
 require_once './configs/sm.php';
 
 if (isset($_GET['erro'])) {
