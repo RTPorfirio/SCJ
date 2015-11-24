@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-
-
-<html>
-{if $conecta eq "logado"}    
+<html lang="pt-BR">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCJ</title>
+        <link rel="stylesheet" href="../view/css/bootstrap.css">
+        <link rel="stylesheet" href="../view/css/style.css">
+
     </head>
     <body>
-        <div>Olá, {$nome}<br /><a href = "./controller/controllerLogout.php"> Sair </a></div>
+        <header>
+            <div id="logo"></div>
+            <img src="t.jpg" />
+            <div class="affix">Bem vindo {$nome} <a href="#">Sair</a></div>
+        </header>
+        <div class="container-fluid">
+
+            <nav class="well">   
+                <h4>Cadastro</h4>
+                <ul >
+
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Usuário</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Vendedor</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Controle de estoque</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Gerar Estojo</a></li>
+                </ul>
+            </nav>
+            <nav class="well">   
+                <h4>Configurações</h4>
+                <ul >
+
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Tipo</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Cor</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Loja</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Tamanho</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Pedra</a></li>
+                    <li class="list-group-item-info"><a href="#" class="list-group-item">Emitir Relatórios</a></li>
+                </ul>
+            </nav>
+            <section>
+
+            </section>
+            <footer>
+
+            </footer>
+        </div>
     </body>
 </html>
-{else}
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>Falha ao realizar o login.</div>
-    </body>
-</html>
-{/if}
