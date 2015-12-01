@@ -6,30 +6,40 @@
         <title>SCJ</title>
         <link rel="stylesheet" href="../view/css/bootstrap.css">
         <link rel="stylesheet" href="../view/css/style.css">
+        
+        <script type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
+        <script type="text/javascript" src="../view/javascripts/main.js"></script>
+        <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
+        
 
     </head>
     <body>
         <header>
-            <div id="logo"></div>
-            <div class="affix">Bem vindo {$nome} <a href="#">Sair</a></div>
+            <div>
+                <div id='logo'></div>
+                <div id='right'>
+                    <div id='curva'></div>
+                    <nav id='infos'>Bem vindo {$nome} <a href="#">Sair</a></nav>
+                </div>
+            </div>
         </header>
-        <div class="container-fluid">
+        <div class="container-fluid all">
 
-            <nav class="well">   
-                <h4>Cadastro</h4>
+            <nav>   
+
                 <ul >
-
+                    <li class='list-group-item list-group-item-warning '>Cadastro</li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Controle de estoque</a></li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Gerar Estojo</a></li>
                 </ul>
-            </nav>
-            <nav class="well">   
-                <h4>Configurações</h4>
-                <ul >
 
+
+                <ul >
+                    <li class='list-group-item list-group-item-warning '>Configurações</li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Tipo</a></li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Cor</a></li>
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Loja</a></li>
@@ -38,12 +48,32 @@
                     <li class="list-group-item-info"><a href="#" class="list-group-item">Emitir Relatórios</a></li>
                 </ul>
             </nav>
-            <section>
+            <article>
+                <section>
+                    <header id="busca">
 
-            </section>
-            <footer>
-
-            </footer>
+                        <div id="formulario">
+                            <div id="reahder"></div>
+                            <form id="pesquisa" action="" method ="post" enctype="multipart/form-data">
+                                <h6 class="center">Resultado</h6>
+                                <textarea id="read" cols="30" rows="1" name ="s"> </textarea>
+                            </form>
+                        </div>
+                        <div id="leitor">
+                                 <input type="button" value="Ligar Leitor" onclick="ativaLeitor()" class="btn-primary"/>                   
+                                <div class="leitorQR" id="reader"> </div>
+                                <form id="pesquisa" action="" method ="post" enctype="multipart/form-data">
+                                    <h6 class="center">Resultado</h6>
+                                    <textarea id="read" cols="30" rows="1" name ="s"> </textarea>
+                                </form>
+                                <div id = "results"></div>
+                        </div>
+                    </header>
+                </section>
+            </article>
         </div>
+        <footer>
+
+        </footer>
     </body>
 </html>

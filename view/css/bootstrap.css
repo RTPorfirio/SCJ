@@ -1186,7 +1186,7 @@ h6,
 .h6 {
   font-family: inherit;
   font-weight: 500;
-  line-height: 1.1;
+
   color: inherit;
 }
 h1 small,
@@ -5292,9 +5292,11 @@ a.thumbnail.active {
   margin-bottom: 20px;
 }
 .list-group-item {
+    top:10px;
+
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 7px 11px;
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -5431,6 +5433,7 @@ button.list-group-item-info.active:focus {
 .list-group-item-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
+  list-style: none;
 }
 a.list-group-item-warning,
 button.list-group-item-warning {
@@ -5542,6 +5545,8 @@ button.list-group-item-danger.active:focus {
 .panel > .panel-collapse > .list-group .list-group-item {
   border-width: 1px 0;
   border-radius: 0;
+
+  
 }
 .panel > .list-group:first-child .list-group-item:first-child,
 .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
@@ -5560,7 +5565,7 @@ button.list-group-item-danger.active:focus {
   border-top-right-radius: 0;
 }
 .panel-heading + .list-group .list-group-item:first-child {
-  border-top-width: 0;
+  border-top-width: 0;  
 }
 .list-group + .panel-footer {
   border-top-width: 0;
