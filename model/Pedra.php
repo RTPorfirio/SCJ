@@ -37,4 +37,24 @@ class Pedra {
         $this->nome_pedra = $nome_pedra;
     }
 
+    public static function listaPedras() {
+        return PedraDao::listaPedras();
+    }
+
+    public static function listaPedra($id_pedra) {
+        return PedraDao::listaPedra($id_pedra);
+    }
+
+    public static function inserePedra($id_pedra) {
+        return PedraDao::inserePedra($id_pedra);
+    }
+
+    public static function editaPedra($id_pedra) {
+        return PedraDao::editaPedra($id_pedra);
+    }
+
+    public static function deletaPedra($id_pedra) {
+        return PedraDao::deletaPedra($id_pedra);
+    }
+
 }

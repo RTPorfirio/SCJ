@@ -37,4 +37,24 @@ class Estojo {
         $this->vendedor_id_vendedor = $vendedor_id_vendedor;
     }
 
+    public static function listaEstojos() {
+        return EstojoDao::listaEstojos();
+    }
+
+    public static function listaEstojo($id_estojo) {
+        return EstojoDao::listaEstojo($id_estojo);
+    }
+
+    public static function insereEstojo($id_estojo) {
+        return EstojoDao::insereVendedor($id_estojo);
+    }
+
+    public static function editaEstojo($id_estojo) {
+        return EstojoDao::editaVendedor($id_estojo);
+    }
+
+    public static function deletaEstojo($id_estojo) {
+        return EstojoDao::deletaVendedor($id_estojo);
+    }
+
 }

@@ -75,24 +75,24 @@ class Usuario {
             return false;
     }
     
-    public static function ListaUsuarios() {
-        return UsuarioDao::ListaUsuarios();
+    public static function listaUsuarios() {
+        return UsuarioDao::listaUsuarios();
     }
 
-    public static function ListaUsuario() {
-        return UsuarioDao::ListaUsuario();
+    public static function listaUsuario() {
+        return UsuarioDao::listaUsuario();
     }
 
-    public static function InsereUsuario($this) {
-        return UsuarioDao::InsereUsuario($this);
+    public static function lnsereUsuario($id_usuario) {
+        return UsuarioDao::insereUsuario($id_usuario);
     }
 
-    public static function EditaUsuario($this) {
-        return UsuarioDao::EditaUsuario($this);
+    public static function editaUsuario($id_usuario) {
+        return UsuarioDao::editaUsuario($id_usuario);
     }
 
-    public static function DeletaUsuario($id) {
-        return UsuarioDao::DeletaUsuario($id);
+    public static function deletaUsuario($id_usuario) {
+        return UsuarioDao::deletaUsuario($id_usuario);
     }
     
     public static function Login($this) {

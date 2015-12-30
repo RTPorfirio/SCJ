@@ -37,4 +37,24 @@ class Tamanho {
         $this->nome_tamanho = $nome_tamanho;
     }
 
+    public static function listaTamanhos() {
+        return TamanhoDao::listaTamanhos();
+    }
+
+    public static function listaTamanho($id_tamanho) {
+        return TamanhoDao::listaTamanho($id_tamanho);
+    }
+
+    public static function insereTamanho($id_tamanho) {
+        return TamanhoDao::insereTamanho($id_tamanho);
+    }
+
+    public static function editaTamanho($id_tamanho) {
+        return TamanhoDao::editaTamanho($id_tamanho);
+    }
+
+    public static function deletaTamanho($id_tamanho) {
+        return TamanhoDao::deletaTamanho($id_tamanho);
+    }
+
 }

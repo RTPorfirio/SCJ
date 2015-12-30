@@ -19,14 +19,28 @@ class Vendedor {
     private $cpf;
     private $telefone;
     private $celular;
+    private $logradouro;
+    private $numero;
+    private $complemento;
+    private $bairro;
+    private $cidade;
+    private $estado;
+    private $cep;
 
-    function __construct($id_vendedor, $nome_vendedor, $rg, $cpf, $telefone, $celular) {
+    function __construct($id_vendedor, $nome_vendedor, $rg, $cpf, $telefone, $celular, $logradouro, $numero, $complemento, $bairro, $cidade, $estado, $cep) {
         $this->id_vendedor = $id_vendedor;
         $this->nome_vendedor = $nome_vendedor;
         $this->rg = $rg;
         $this->cpf = $cpf;
         $this->telefone = $telefone;
         $this->celular = $celular;
+        $this->logradouro = $logradouro;
+        $this->numero = $numero;
+        $this->complemento = $complemento;
+        $this->bairro = $bairro;
+        $this->cidade = $cidade;
+        $this->estado = $estado;
+        $this->cep = $cep;
     }
 
     function getId_vendedor() {
@@ -53,6 +67,34 @@ class Vendedor {
         return $this->celular;
     }
 
+    function getLogradouro() {
+        return $this->logradouro;
+    }
+
+    function getNumero() {
+        return $this->numero;
+    }
+
+    function getComplemento() {
+        return $this->complemento;
+    }
+
+    function getBairro() {
+        return $this->bairro;
+    }
+
+    function getCidade() {
+        return $this->cidade;
+    }
+
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function getCep() {
+        return $this->cep;
+    }
+
     function setId_vendedor($id_vendedor) {
         $this->id_vendedor = $id_vendedor;
     }
@@ -75,6 +117,54 @@ class Vendedor {
 
     function setCelular($celular) {
         $this->celular = $celular;
+    }
+
+    function setLogradouro($logradouro) {
+        $this->logradouro = $logradouro;
+    }
+
+    function setNumero($numero) {
+        $this->numero = $numero;
+    }
+
+    function setComplemento($complemento) {
+        $this->complemento = $complemento;
+    }
+
+    function setBairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
+    function setCidade($cidade) {
+        $this->cidade = $cidade;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
+    function setCep($cep) {
+        $this->cep = $cep;
+    }
+
+    public static function listaVendedores() {
+        return VendedorDao::listaVendedores();
+    }
+
+    public static function listaVendedor($id_vendedor) {
+        return VendedorDao::listaVendedor($id_vendedor);
+    }
+
+    public static function insereVendedor($id_vendedor) {
+        return VendedorDao::insereVendedor($id_vendedor);
+    }
+
+    public static function editaVendedor($id_vendedor) {
+        return VendedorDao::editaVendedor($id_vendedor);
+    }
+
+    public static function deletaVendedor($id_vendedor) {
+        return VendedorDao::deletaVendedor($id_vendedor);
     }
 
 }
