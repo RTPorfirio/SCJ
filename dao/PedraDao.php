@@ -25,7 +25,7 @@ class PedraDao {
         $array = array();
         $pedra = null;
         foreach ($sm as $registros) {
-            $pedra = self::CreateUser($registros);
+            $pedra = self::CreatePedra($registros);
             array_push($array, $pedra);
         }
         return $array;
@@ -34,19 +34,19 @@ class PedraDao {
     public static function ListaPedra($id_Pedra) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $busca = $conn->prepare("select * from pedra where id_pedra=:id");
-        $busca->bindValue(":id", $id, PDO::PARAM_INT);
+        $busca = $conn->prepare("select * from pedra where id_pedra=:id_Pedra");
+        $busca->bindValue(":id_Pedra", $id_Pedra, PDO::PARAM_INT);
         $busca->execute();
         $sm = $busca->fetch(PDO::FETCH_ASSOC);
-        $pedra = self::CreateVendedor($sm);
+        $pedra = self::CreatePedra($sm);
         return $pedra;
     }
 
     public static function InserePedra($pedra) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $insere = $conn->prepare("INSERT INTO `crisjoias`.`pedra` (`id_pedra`, `nome_pedra`) VALUES (NULL,:nome)");
-        $insere->bindValue(":nome", $pedra->getNome_vendedor(), PDO::PARAM_STR);
+        $insere = $conn->prepare("INSERT INTO `crisjoias`.`pedra` (`nome_pedra`) VALUES (:nome)");
+        $insere->bindValue(":nome", $pedra->getNome_Pedra(), PDO::PARAM_STR);
         if ($insere->execute() == 1)
             return true;
         else
@@ -56,8 +56,8 @@ class PedraDao {
     public static function DeletaPedra($id_pedra) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $del = $conn->prepare("DELETE FROM `crisjoias`.`pedra` WHERE `pedra`.`id_vendedor` = :id");
-        $del->bindValue(":id", $id, PDO::PARAM_INT);
+        $del = $conn->prepare("DELETE FROM `crisjoias`.`pedra` WHERE `pedra`.`id_pedra` = :id");
+        $del->bindValue(":id", $id_pedra, PDO::PARAM_INT);
         if ($del->execute() == 1)
             return 1;
         else
@@ -67,7 +67,7 @@ class PedraDao {
     public static function EditaPedra($pedra) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $edita = $conn->prepare("UPDATE `crisjoias`.`vendedor` SET `nome_pedra` = :nome WHERE `pedra`.`id_pedra` = :id;;");
+        $edita = $conn->prepare("UPDATE `crisjoias`.`pedra` SET `nome_pedra` = :nome WHERE `pedra`.`id_pedra` = :id;");
         $edita->bindValue(":id", $pedra->getId_pedra(), PDO::PARAM_INT);
         $edita->bindValue(":nome", $pedra->getNome_pedra(), PDO::PARAM_STR);
         if ($edita->execute() == 1)

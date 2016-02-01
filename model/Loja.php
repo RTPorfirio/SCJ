@@ -11,6 +11,8 @@
  *
  * @author Ricardo
  */
+include '../dao/LojaDao.php';
+
 class Loja {
 
     private $id_loja;
@@ -24,17 +26,31 @@ class Loja {
     private $numero;
     private $complemento;
 
-    function __construct($id_loja, $nome_loja) {
-        $this->id_loja = $id_loja;
-        $this->nome_loja = $nome_loja;
-        $this->telefone = $telefone;
-        $this->logradouro = $logradouro;
-        $this->bairro = $bairro;
-        $this->cidade = $cidade;
-        $this->cep = $cep;
-        $this->estado = $estado;
-        $this->numero = $numero;
-        $this->complemento = $complemento;
+    function __construct() {
+        if (func_num_args() == 9) {
+            $this->nome_loja = func_get_arg(0);
+            $this->telefone = func_get_arg(1);
+            $this->logradouro = func_get_arg(2);
+            $this->bairro = func_get_arg(3);
+            $this->cidade = func_get_arg(4);
+            $this->cep =  func_get_arg(5);
+            $this->estado = func_get_arg(6);
+            $this->numero = func_get_arg(7);
+            $this->complemento = func_get_arg(8);
+        } else {
+            if (func_num_args() == 10) {
+            $this->id_loja = func_get_arg(0);
+            $this->nome_loja = func_get_arg(1);
+            $this->telefone = func_get_arg(2);
+            $this->logradouro = func_get_arg(3);
+            $this->bairro = func_get_arg(4);
+            $this->cidade = func_get_arg(5);
+            $this->cep =  func_get_arg(6);
+            $this->estado = func_get_arg(7);
+            $this->numero = func_get_arg(8);
+            $this->complemento = func_get_arg(9);
+            }
+        }
     }
 
     function getId_loja() {
@@ -122,11 +138,11 @@ class Loja {
     }
 
     public static function listaLoja($id_loja) {
-        return LojaDao::listaVendedor($id_loja);
+        return LojaDao::ListaLoja($id_loja);
     }
 
-    public static function insereLoja($id_loja) {
-        return LojaDao::insereLoja($id_loja);
+    public static function insereLoja($loja) {
+        return LojaDao::insereLoja($loja);
     }
 
     public static function editaLoja($id_loja) {

@@ -11,6 +11,9 @@
  *
  * @author Ricardo
  */
+
+include_once '../dao/PedraDao.php';
+
 class Pedra {
 
     private $id_pedra;

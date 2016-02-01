@@ -35,7 +35,7 @@ class TipoDao {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
         $busca = $conn->prepare("select * from tipo where id_tipo=:id");
-        $busca->bindValue(":id", $id, PDO::PARAM_INT);
+        $busca->bindValue(":id", $id_tipo, PDO::PARAM_INT);
         $busca->execute();
         $sm = $busca->fetch(PDO::FETCH_ASSOC);
         $tipo = self::CreateTipo($sm);
@@ -56,8 +56,8 @@ class TipoDao {
     public static function DeletaTipo($id_tipo) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $del = $conn->prepare("DELETE FROM `crisjoias`.`tipo `WHERE `tipo`.`id_tipo` = :id");
-        $del->bindValue(":id", $id, PDO::PARAM_INT);
+        $del = $conn->prepare("DELETE FROM `crisjoias`.`tipo` WHERE `tipo`.`id_tipo` = :id");
+        $del->bindValue(":id", $id_tipo, PDO::PARAM_INT);
         if ($del->execute() == 1)
             return 1;
         else

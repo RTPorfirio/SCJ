@@ -29,10 +29,18 @@ class Usuario {
             $this->login = func_get_arg(0); //Login
             $this->senha = func_get_arg(1); //Senha
         } else {//se o numero de argumentos para o construtor for igual a 4
-            $this->id_usuario = func_get_arg(0); //Id
-            $this->nome_usuario = func_get_arg(1); //nome
-            $this->login = func_get_arg(2); //login
-            $this->senha = func_get_arg(3); //senha
+            if (func_num_args() == 4) {
+                $this->id_usuario = func_get_arg(0); //Id
+                $this->nome_usuario = func_get_arg(1); //nome
+                $this->login = func_get_arg(2); //login
+                $this->senha = func_get_arg(3); //senha
+            } else {
+                if (func_num_args() == 3) {
+                    $this->nome_usuario = func_get_arg(0); //nome
+                    $this->login = func_get_arg(1); //login
+                    $this->senha = func_get_arg(2); //senha
+                }
+            }
         }
     }
 
@@ -68,19 +76,19 @@ class Usuario {
         $this->senha = $senha;
     }
 
-    function verificaLogin($obj){
-        if($obj!=null)
+    function verificaLogin($obj) {
+        if ($obj != null)
             return true;
         else
             return false;
     }
-    
+
     public static function listaUsuarios() {
         return UsuarioDao::listaUsuarios();
     }
 
-    public static function listaUsuario() {
-        return UsuarioDao::listaUsuario();
+    public static function listaUsuario($usuario) {
+        return UsuarioDao::listaUsuario($usuario);
     }
 
     public static function lnsereUsuario($id_usuario) {
@@ -94,7 +102,7 @@ class Usuario {
     public static function deletaUsuario($id_usuario) {
         return UsuarioDao::deletaUsuario($id_usuario);
     }
-    
+
     public static function Login($this) {
         return UsuarioDao::Login($this);
     }

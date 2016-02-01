@@ -28,16 +28,16 @@ header{
     width: 65%;
     height: 170px;
     float:left;
-    background-image: url('../images/imagem.jpeg');
+    background-image: url('../images/logo.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #8C1717;
+    background-color: #f8f8f8;
 
 }
 #right{
     float:left;
     width: 35%;
-    background-color: #333;
+    background-color: #f8f8f8;
 }
 #curva{
     height: 65px;
@@ -91,4 +91,8 @@ footer{
     height:250px;
     border:1px #000;
     visibility: hidden;
+}
+
+#controladores{
+text-align: center;
 }

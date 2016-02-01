@@ -14,7 +14,7 @@ class VendedorDao {
         $array = array();
         $vendedor = null;
         foreach ($sm as $registros) {
-            $vendedor = self::CreateUser($registros);
+            $vendedor = self::CreateVendedor($registros);
             array_push($array, $vendedor);
         }
         return $array;
@@ -23,7 +23,7 @@ class VendedorDao {
     public static function ListaVendedor($id_vendedor) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $busca = $conn->prepare("select * from usuario where id_vendedor=:id");
+        $busca = $conn->prepare("select * from vendedor where id_vendedor=:id");
         $busca->bindValue(":id", $id_vendedor, PDO::PARAM_INT);
         $busca->execute();
         $sm = $busca->fetch(PDO::FETCH_ASSOC);
@@ -34,7 +34,7 @@ class VendedorDao {
     public static function InsereVendedor($vendedor) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $insere = $conn->prepare("INSERT INTO `crisjoias`.`vendedor` (`id_vendedor`, `nome_vendedor`, `rg`, `cpf`, `telefone`, `celular`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `cep`) VALUES (NULL,:nome,:rg,:cpf, :telefone, :celular, :logradouro, :numero, :complemento, :bairro, :cidade, :estado, :cep)");
+        $insere = $conn->prepare("INSERT INTO `crisjoias`.`vendedor` (`nome_vendedor`, `rg`, `cpf`, `telefone`, `celular`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `cep`) VALUES (:nome,:rg,:cpf, :telefone, :celular, :logradouro, :numero, :complemento, :bairro, :cidade, :estado, :cep)");
         $insere->bindValue(":nome", $vendedor->getNome_vendedor(), PDO::PARAM_STR);
         $insere->bindValue(":rg", $vendedor->getRg(), PDO::PARAM_STR);
         $insere->bindValue(":cpf", $vendedor->getCpf(), PDO::PARAM_STR);
@@ -67,21 +67,23 @@ class VendedorDao {
     public static function EditaVendedor($vendedor) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $edita = $conn->prepare("UPDATE `crisjoias`.`vendedor` SET `nome_vendedor` = :nome, `rg` = :rg, `cpf` = :cpf, `telefone` = :telefone, `celular` = :celular, `logradouro` = :logradouro, `numero` = :numero, `complemento` = :complemento, `bairro` = :bairro, `cidade` = :cidade, `estado` = :estado, `cep` = :cep, WHERE `vendedor`.`id_vendedor` = :id;;");
+
+        $edita = $conn->prepare("UPDATE `vendedor` SET `nome_vendedor` = :nome, `rg` = :rg, `cpf` = :cpf, `telefone` = :telefone, `celular` = :celular, `logradouro` = :log, `numero` = :numero, `complemento` = :complemento, `bairro` = :bairro, `cidade` = :cidade, `estado` = :estado, `cep` = :cep WHERE `vendedor`.`id_vendedor` = :id;");
+        
         $edita->bindValue(":id", $vendedor->getId_vendedor(), PDO::PARAM_INT);
         $edita->bindValue(":nome", $vendedor->getNome_vendedor(), PDO::PARAM_STR);
         $edita->bindValue(":rg", $vendedor->getRg(), PDO::PARAM_STR);
         $edita->bindValue(":cpf", $vendedor->getCpf(), PDO::PARAM_STR);
         $edita->bindValue(":telefone", $vendedor->getTelefone(), PDO::PARAM_STR);
         $edita->bindValue(":celular", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":logradouro", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":numero", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":complemento", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":bairro", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":cidade", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":estado", $vendedor->getCelular(), PDO::PARAM_STR);
-        $edita->bindValue(":cep", $vendedor->getCelular(), PDO::PARAM_STR);
-        
+        $edita->bindValue(":log", $vendedor->getLogradouro(), PDO::PARAM_STR);
+        $edita->bindValue(":numero", $vendedor->getNumero(), PDO::PARAM_STR);
+        $edita->bindValue(":complemento", $vendedor->getComplemento(), PDO::PARAM_STR);
+        $edita->bindValue(":bairro", $vendedor->getBairro(), PDO::PARAM_STR);
+        $edita->bindValue(":cidade", $vendedor->getCidade(), PDO::PARAM_STR);
+        $edita->bindValue(":estado", $vendedor->getEstado(), PDO::PARAM_STR);
+        $edita->bindValue(":cep", $vendedor->getCep(), PDO::PARAM_STR);
+
         if ($edita->execute() == 1)
             return true;
         else

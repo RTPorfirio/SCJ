@@ -45,10 +45,10 @@ class UsuarioDao {
     public static function InsereUsuario($usuario) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $insere = $conn->prepare("INSERT INTO `crisjoias`.`usuario` (`id_usuario`, `nome_usuario`, `login`, `senha`) VALUES (NULL,:nome,:login,:senha)");
+        $insere = $conn->prepare("INSERT INTO `crisjoias`.`usuario` (`nome_usuario`, `login`, `senha`) VALUES (:nome,:login,:senha)");
         $insere->bindValue(":nome", $usuario->getNome_usuario(), PDO::PARAM_STR);
         $insere->bindValue(":login", $usuario->getLogin(), PDO::PARAM_STR);
-        $insere->bindValue(":senha", $usuario->getSenha(), PDO::PARAM_STR);
+        $insere->bindValue(":senha", md5($usuario->getSenha()), PDO::PARAM_STR);
         if ($insere->execute() == 1)
             return true;
         else
@@ -73,7 +73,7 @@ class UsuarioDao {
         $edita->bindValue(":id", $usuario->getId_usuario(), PDO::PARAM_INT);
         $edita->bindValue(":nome", $usuario->getNome_usuario(), PDO::PARAM_STR);
         $edita->bindValue(":login", $usuario->getLogin(), PDO::PARAM_STR);
-        $edita->bindValue(":senha", $usuario->getSenha(), PDO::PARAM_STR);
+        $edita->bindValue(":senha", md5($usuario->getSenha()), PDO::PARAM_STR);
         if ($edita->execute() == 1)
             return true;
         else
@@ -85,7 +85,7 @@ class UsuarioDao {
         $conn = $conexao->connectBD();
         $login = $conn->prepare("SELECT * FROM `usuario` WHERE login like :login and senha LIKE :senha");
         $login->bindValue(":login", $usuario->getLogin(), PDO::PARAM_STR);
-        $login->bindValue(":senha", $usuario->getSenha(), PDO::PARAM_STR);
+        $login->bindValue(":senha", md5($usuario->getSenha()), PDO::PARAM_STR);
         $login->execute();
         if ($login->rowCount() == 1) {
             $sm = $login->fetch(PDO::FETCH_ASSOC);

@@ -11,6 +11,9 @@
  *
  * @author Ricardo
  */
+
+include '../dao/VendedorDao.php';
+
 class Vendedor {
 
     private $id_vendedor;
@@ -27,20 +30,38 @@ class Vendedor {
     private $estado;
     private $cep;
 
-    function __construct($id_vendedor, $nome_vendedor, $rg, $cpf, $telefone, $celular, $logradouro, $numero, $complemento, $bairro, $cidade, $estado, $cep) {
-        $this->id_vendedor = $id_vendedor;
-        $this->nome_vendedor = $nome_vendedor;
-        $this->rg = $rg;
-        $this->cpf = $cpf;
-        $this->telefone = $telefone;
-        $this->celular = $celular;
-        $this->logradouro = $logradouro;
-        $this->numero = $numero;
-        $this->complemento = $complemento;
-        $this->bairro = $bairro;
-        $this->cidade = $cidade;
-        $this->estado = $estado;
-        $this->cep = $cep;
+    function __construct() {
+        if (func_num_args() == 13) {
+            $this->id_vendedor = func_get_arg(0);
+            $this->nome_vendedor = func_get_arg(1);
+            $this->rg = func_get_arg(2);
+            $this->cpf = func_get_arg(3);
+            $this->telefone = func_get_arg(4);
+            $this->celular = func_get_arg(5);
+            $this->logradouro = func_get_arg(6);
+            $this->numero = func_get_arg(7);
+            $this->complemento = func_get_arg(8);
+            $this->bairro = func_get_arg(9);
+            $this->cidade = func_get_arg(10);
+            $this->estado = func_get_arg(11);
+            $this->cep = func_get_arg(12);
+        }
+        else{
+            if(func_num_args() == 12) {
+            $this->nome_vendedor = func_get_arg(0);
+            $this->rg = func_get_arg(1);
+            $this->cpf = func_get_arg(2);
+            $this->telefone = func_get_arg(3);
+            $this->celular = func_get_arg(4);
+            $this->logradouro = func_get_arg(5);
+            $this->numero = func_get_arg(6);
+            $this->complemento = func_get_arg(7);
+            $this->bairro = func_get_arg(8);
+            $this->cidade = func_get_arg(9);
+            $this->estado = func_get_arg(10);
+            $this->cep = func_get_arg(11);
+        }
+        }
     }
 
     function getId_vendedor() {
@@ -152,15 +173,15 @@ class Vendedor {
     }
 
     public static function listaVendedor($id_vendedor) {
-        return VendedorDao::listaVendedor($id_vendedor);
+        return VendedorDao::ListaVendedor($id_vendedor);
     }
 
     public static function insereVendedor($id_vendedor) {
         return VendedorDao::insereVendedor($id_vendedor);
     }
 
-    public static function editaVendedor($id_vendedor) {
-        return VendedorDao::editaVendedor($id_vendedor);
+    public static function EditaVendedor($vendedor) {
+        return VendedorDao::EditaVendedor($vendedor);
     }
 
     public static function deletaVendedor($id_vendedor) {

@@ -11,6 +11,9 @@
  *
  * @author Ricardo e Luiz
  */
+
+include '../dao/TipoDao.php';
+
 class Tipo {
 
     private $id_tipo;

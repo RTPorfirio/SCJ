@@ -6,12 +6,12 @@
         <title>SCJ</title>
         <link rel="stylesheet" href="../view/css/bootstrap.css">
         <link rel="stylesheet" href="../view/css/style.css">
-        
+
         <script type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
         <script type="text/javascript" src="../view/javascripts/main.js"></script>
         <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
-        
+
 
     </head>
     <body>
@@ -20,32 +20,37 @@
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo {$nome} <a href="#">Sair</a></nav>
+                    <nav id='infos'>Bem vindo {$nome}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
         <div class="container-fluid all">
 
             <nav>   
-
+                <ul >
+                    <li class='list-group-item list-group-item-warning '>Principal</li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPerfil.php">Edital Perfíl</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php.php">Sair</a></li>
+                </ul>
+                
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Jóia</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Usuário</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Cadastro de Vendedor</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Controle de estoque</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Gerar Estojo</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerJoia.php">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstojo.php">Gerar Estojo</a></li>
                 </ul>
 
 
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Configurações</li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Tipo</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Cor</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Loja</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Tamanho</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Configurar Pedra</a></li>
-                    <li class="list-group-item-info"><a href="#" class="list-group-item">Emitir Relatórios</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerTipo.php">Configurar Tipo</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerCor.php">Configurar Cor</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLoja.php">Configurar Loja</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPedra.php">Configurar Pedra</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerRelatorio.php">Emitir Relatórios</a></li>
                 </ul>
             </nav>
             <article>
@@ -60,13 +65,13 @@
                             </form>
                         </div>
                         <div id="leitor">
-                                 <input type="button" value="Ligar Leitor" onclick="ativaLeitor()" class="btn-primary"/>                   
-                                <div class="leitorQR" id="reader"> </div>
-                                <form id="pesquisa" action="" method ="post" enctype="multipart/form-data">
-                                    <h6 class="center">Resultado</h6>
-                                    <textarea id="read" cols="30" rows="1" name ="s"> </textarea>
-                                </form>
-                                <div id = "results"></div>
+                            <input type="button" value="Ligar Leitor" onclick="ativaLeitor()" class="btn-primary"/>                   
+                            <div class="leitorQR" id="reader"> </div>
+                            <form id="pesquisa" action="" method ="post" enctype="multipart/form-data">
+                                <h6 class="center">Resultado</h6>
+                                <textarea id="read" cols="30" rows="1" name ="s"> </textarea>
+                            </form>
+                            <div id = "results"></div>
                         </div>
                     </header>
                 </section>
