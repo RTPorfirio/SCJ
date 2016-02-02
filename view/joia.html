@@ -1,16 +1,85 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="pt-BR">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCJ</title>
+        <link rel="stylesheet" href="../view/css/bootstrap.css">
+        <link rel="stylesheet" href="../view/css/style.css">
+
+        <script type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
+        <script type="text/javascript" src="../view/javascripts/main.js"></script>
+        <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
+
+
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <div>
+                <div id='logo'></div>
+                <div id='right'>
+                    <div id='curva'></div>
+                    <nav id='infos'>Bem vindo {$nome}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid all">
+
+            <nav>   
+                <ul >
+                    <li class='list-group-item list-group-item-warning '>Principal</li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPerfil.php">Edital Perfíl</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php.php">Sair</a></li>
+                </ul>
+
+                <ul >
+                    <li class='list-group-item list-group-item-warning '>Cadastro</li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstojo.php">Gerar Estojo</a></li>
+                </ul>
+
+
+                <ul >
+                    <li class='list-group-item list-group-item-warning '>Configurações</li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerTipo.php">Configurar Tipo</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerCor.php">Configurar Cor</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLoja.php">Configurar Loja</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPedra.php">Configurar Pedra</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerRelatorio.php">Emitir Relatórios</a></li>
+                </ul>
+            </nav>
+            <article>
+                <section>
+                    <div id="controladores">
+                        <br/>
+                        <h1>Controle de Lojas</h1>
+                        <table border="1">
+                            <tr>
+                                <td>Nome da Loja</td>
+                                <td>Telefone</td>
+                                <td>Opção</td>
+                            </tr>
+                            {foreach $lojas as $loja }
+                            <tr>
+                                <td>{$loja->getNome_loja()}</td>
+                                <td>{$loja->getTelefone()}</td>
+                                <td><a href="../controller/controllerManterJoia.php?opc=Editar&cod={$loja->getId_loja()}">Editar</a> || <a href="../controller/controllerManterLoja.php?opc=Remover&cod={$loja->getId_loja()}">Remover</a></td>
+                            </tr>
+                            {/foreach}
+                        </table>
+                        <a href="../controller/controllerManterJoia.php?opc=Incluir" class="affix">Cadastrar nova Loja</a>
+                    </div>
+
+                </section>
+            </article>
+        </div>
+        <footer>
+
+        </footer>
     </body>
 </html>

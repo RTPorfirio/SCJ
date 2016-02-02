@@ -6,3 +6,6 @@
  * and open the template in the editor.
  */
 
+$img = addslashes(trim($_POST['img']));
+
+echo $img;

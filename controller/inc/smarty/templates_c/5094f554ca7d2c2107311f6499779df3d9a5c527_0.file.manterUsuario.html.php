@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-01 03:42:58
+<?php /* Smarty version 3.1.24, created on 2016-02-02 19:52:41
          compiled from "F:/xampp/htdocs/SCJ/view/manterUsuario.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1880856aec632bd4c18_46856453%%*/
+/*%%SmartyHeaderCode:2731656b0faf959eaf4_48395156%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5094f554ca7d2c2107311f6499779df3d9a5c527' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterUsuario.html',
-      1 => 1454294573,
+      1 => 1454362327,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1880856aec632bd4c18_46856453',
+  'nocache_hash' => '2731656b0faf959eaf4_48395156',
   'variables' => 
   array (
     'nome' => 0,
@@ -25,13 +25,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56aec632c23ed5_69831561',
+  'unifunc' => 'content_56b0faf95dea88_65525794',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56aec632c23ed5_69831561')) {
-function content_56aec632c23ed5_69831561 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56b0faf95dea88_65525794')) {
+function content_56b0faf95dea88_65525794 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1880856aec632bd4c18_46856453';
+$_smarty_tpl->properties['nocache_hash'] = '2731656b0faf959eaf4_48395156';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -80,7 +80,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1880856aec632bd4c18_46856453';
 
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerJoia.php">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>

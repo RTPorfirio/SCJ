@@ -1,3 +1,41 @@
+<?php /* Smarty version 3.1.24, created on 2016-02-02 05:21:11
+         compiled from "F:/xampp/htdocs/SCJ/view/manterJoia.html" */ ?>
+<?php
+/*%%SmartyHeaderCode:2508956b02eb7b793d2_92129255%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '6449b5aa0f2f48e3ca0d0f6e98acba906b3abc71' => 
+    array (
+      0 => 'F:/xampp/htdocs/SCJ/view/manterJoia.html',
+      1 => 1454386870,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2508956b02eb7b793d2_92129255',
+  'variables' => 
+  array (
+    'nome' => 0,
+    'tipos' => 0,
+    'tipo' => 0,
+    'lojas' => 0,
+    'loja' => 0,
+    'cores' => 0,
+    'cor' => 0,
+    'pedras' => 0,
+    'pedra' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => '3.1.24',
+  'unifunc' => 'content_56b02eb7bbae65_29579746',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_56b02eb7bbae65_29579746')) {
+function content_56b02eb7bbae65_29579746 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '2508956b02eb7b793d2_92129255';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -7,10 +45,18 @@
         <link rel="stylesheet" href="../view/css/bootstrap.css">
         <link rel="stylesheet" href="../view/css/style.css">
 
-        <script type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
-        <script type="text/javascript" src="../view/javascripts/main.js"></script>
-        <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/main.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
+>
 
 
     </head>
@@ -20,7 +66,8 @@
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo {$nome}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
+                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
@@ -93,9 +140,24 @@
                                         <td><label for='tipo'>Tipo de Produto</label></td>
                                         <td>
                                             <select class="form-control" name="tipo" id="tipo">
-                                                {foreach $tipos as $tipo }
-                                                <option value="{$tipo->getId_tipo()}">{$tipo->getNome_tipo()}</option>
-                                                {/foreach}
+                                                <?php
+$_from = $_smarty_tpl->tpl_vars['tipos']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['tipo'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['tipo']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
+$_smarty_tpl->tpl_vars['tipo']->_loop = true;
+$foreach_tipo_Sav = $_smarty_tpl->tpl_vars['tipo'];
+?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['tipo']->value->getId_tipo();?>
+"><?php echo $_smarty_tpl->tpl_vars['tipo']->value->getNome_tipo();?>
+</option>
+                                                <?php
+$_smarty_tpl->tpl_vars['tipo'] = $foreach_tipo_Sav;
+}
+?>
                                             </select>
                                         </td>
                                     </tr>
@@ -104,9 +166,24 @@
                                         <td><label for='loja'>Fornecedor</label></td>
                                         <td>
                                             <select class="form-control" id="loja" name="loja">
-                                                {foreach $lojas as $loja }
-                                                <option value="{$loja->getId_loja()}">{$loja->getNome_loja()}</option>
-                                                {/foreach}
+                                                <?php
+$_from = $_smarty_tpl->tpl_vars['lojas']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['loja'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['loja']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['loja']->value) {
+$_smarty_tpl->tpl_vars['loja']->_loop = true;
+$foreach_loja_Sav = $_smarty_tpl->tpl_vars['loja'];
+?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['loja']->value->getId_loja();?>
+"><?php echo $_smarty_tpl->tpl_vars['loja']->value->getNome_loja();?>
+</option>
+                                                <?php
+$_smarty_tpl->tpl_vars['loja'] = $foreach_loja_Sav;
+}
+?>
                                             </select>
                                         </td>
                                     </tr>
@@ -115,9 +192,24 @@
                                         <td><label for='numero'>Cor</label></td>
                                         <td>
                                             <select class="form-control" id='numero' name="numero">
-                                                {foreach $cores as $cor }
-                                                <option value="{$cor->getId_cor()}">{$cor->getNome_cor()}</option>
-                                                {/foreach}
+                                                <?php
+$_from = $_smarty_tpl->tpl_vars['cores']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['cor'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['cor']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['cor']->value) {
+$_smarty_tpl->tpl_vars['cor']->_loop = true;
+$foreach_cor_Sav = $_smarty_tpl->tpl_vars['cor'];
+?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['cor']->value->getId_cor();?>
+"><?php echo $_smarty_tpl->tpl_vars['cor']->value->getNome_cor();?>
+</option>
+                                                <?php
+$_smarty_tpl->tpl_vars['cor'] = $foreach_cor_Sav;
+}
+?>
                                             </select>
                                         </td>
                                     </tr>
@@ -126,9 +218,24 @@
                                         <td><label for='pedra'>Pedra</label></td>
                                         <td>
                                             <select class="form-control" id="pedra" name="pedra">
-                                                {foreach $pedras as $pedra }
-                                                <option value="{$pedra->getId_pedra()}">{$pedra->getNome_pedra()}</option>
-                                                {/foreach}
+                                                <?php
+$_from = $_smarty_tpl->tpl_vars['pedras']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['pedra'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['pedra']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['pedra']->value) {
+$_smarty_tpl->tpl_vars['pedra']->_loop = true;
+$foreach_pedra_Sav = $_smarty_tpl->tpl_vars['pedra'];
+?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['pedra']->value->getId_pedra();?>
+"><?php echo $_smarty_tpl->tpl_vars['pedra']->value->getNome_pedra();?>
+</option>
+                                                <?php
+$_smarty_tpl->tpl_vars['pedra'] = $foreach_pedra_Sav;
+}
+?>
                                             </select>
                                         </td>
                                     </tr>
@@ -161,4 +268,6 @@
 
         </footer>
     </body>
-</html>
+</html><?php }
+}
+?>

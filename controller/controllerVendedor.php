@@ -7,4 +7,6 @@ $vendedores = Vendedor::listaVendedores();
 
 $sm->assign("vendedores",$vendedores);
 
+$sm->assign("nome","Cris");
+
 $sm->display('../view/vendedor.html');

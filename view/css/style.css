@@ -7,6 +7,22 @@ and open the template in the editor.
     Created on : 24/11/2015, 15:16:40
     Author     : ricardo
 */
+
+a{
+    text-decoration: none;
+    color: #D2691E;
+}
+
+a:visited{
+    text-decoration: none;
+    color: #D2691E;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #F4A460;
+}
+
 .all{
     background-color: #f8f8f8;
 }

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-01 05:31:34
+<?php /* Smarty version 3.1.24, created on 2016-02-01 22:32:52
          compiled from "F:/xampp/htdocs/SCJ/view/manterVendedor.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:2036856aedfa6171ae9_93031426%%*/
+/*%%SmartyHeaderCode:2759956afcf04bbd798_92102006%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f1f0b1235c3046954722ee90840b1f46ec6dd6e8' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterVendedor.html',
-      1 => 1454300898,
+      1 => 1454362331,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2036856aedfa6171ae9_93031426',
+  'nocache_hash' => '2759956afcf04bbd798_92102006',
   'variables' => 
   array (
     'nome' => 0,
@@ -34,13 +34,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56aedfa61b4a21_67893186',
+  'unifunc' => 'content_56afcf04c180b8_56307996',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56aedfa61b4a21_67893186')) {
-function content_56aedfa61b4a21_67893186 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56afcf04c180b8_56307996')) {
+function content_56afcf04c180b8_56307996 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2036856aedfa6171ae9_93031426';
+$_smarty_tpl->properties['nocache_hash'] = '2759956afcf04bbd798_92102006';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -89,7 +89,7 @@ $_smarty_tpl->properties['nocache_hash'] = '2036856aedfa6171ae9_93031426';
 
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerJoia.php">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
@@ -121,82 +121,82 @@ $_smarty_tpl->properties['nocache_hash'] = '2036856aedfa6171ae9_93031426';
                             <form action="../controller/manterVendedor.php?opc=<?php echo $_smarty_tpl->tpl_vars['opc']->value;?>
 " method="post">
                                 <?php }?>
-                                <table>
+                                <table class="table">
                                     <tr>
 
                                         <td><label for='nome'>Nome</label></td>
-                                        <td><input type='text' id='nome' name='nome' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['nomeVendedor']->value;?>
-"<?php }?>/></td>
+                                        <td><input class="form-control" type="text" type='text' id='nome' name='nome' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['nomeVendedor']->value;?>
+"<?php }?> /></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='nome'>Telefone</label></td>
-                                        <td><input type='text' id='tel' name='tel' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['telefone']->value;?>
+                                        <td><input class="form-control" type="text" id='tel' name='tel' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['telefone']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='celular'>Celular</label></td>
-                                        <td><input type='text' id='celular' name='celular' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['celular']->value;?>
+                                        <td><input class="form-control" type="text" id='celular' name='celular' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['celular']->value;?>
 "<?php }?>/></td>
                                     </tr>
 
                                     <tr>
 
                                         <td><label for='rg'>Rg</label></td>
-                                        <td><input type='text' id='rg' name='rg' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['rg']->value;?>
+                                        <td><input class="form-control" type="text" id='rg' name='rg' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['rg']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='cpf'>CPF</label></td>
-                                        <td><input type='text' id='cpf' name='cpf' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cpf']->value;?>
+                                        <td><input class="form-control" type="text" id='cpf' name='cpf' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cpf']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='cep'>Cep</label></td>
-                                        <td><input type='text' id='cep' name='cep' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cep']->value;?>
+                                        <td><input class="form-control" type="text" id='cep' name='cep' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cep']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='estado'>Estado</label></td>
-                                        <td><input type='text' id='estado' name='estado' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['estado']->value;?>
+                                        <td><input class="form-control" type="text" id='estado' name='estado' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['estado']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='cidade'>Cidade</label></td>
-                                        <td><input type='text' id='cidade' name='cidade' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cidade']->value;?>
+                                        <td><input class="form-control" type="text" id='cidade' name='cidade' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cidade']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='bairro'>Bairro</label></td>
-                                        <td><input type='text' id='bairro' name='bairro' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['bairro']->value;?>
+                                        <td><input class="form-control" type="text" id='bairro' name='bairro' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['bairro']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='rua'>Rua</label></td>
-                                        <td><input type='text' id='rua' name='rua' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['rua']->value;?>
+                                        <td><input class="form-control" type="text" id='rua' name='rua' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['rua']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='numero'>Numero</label></td>
-                                        <td><input type='number' id='numero' name='numero' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['numero']->value;?>
+                                        <td><input class="form-control" type='number' id='numero' name='numero' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['numero']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
 
                                         <td><label for='cmp'>Complemento</label></td>
-                                        <td><input type='textarea' id='cmp' name='cmp' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cmp']->value;?>
+                                        <td><input class="form-control" type='textarea' id='cmp' name='cmp' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['cmp']->value;?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"><input type="submit" value="Confirmar Operação"/>
+                                        <td colspan="2"><input type="submit" value="Confirmar Operação" class="btn"/>
                                     </tr>
                                 </table>
                             </form>

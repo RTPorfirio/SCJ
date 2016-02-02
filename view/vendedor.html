@@ -36,7 +36,7 @@
 
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerJoia.php">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
@@ -58,11 +58,13 @@
                     <div id="controladores">
                         <br/>
                         <h1>Controle de Vendedores</h1>
-                        <table border="1">
+                        
+                        <table class="table">
                             <tr>
-                                <td>Nome do Vendedor</td>
-                                <td>Telefone</td>
-                                <td>Celular</td>
+                                <td class="all">Nome do Vendedor</td>
+                                <td class="all">Telefone</td>
+                                <td class="all">Celular</td>
+                                <td class="all">Opções</td>
                             </tr>
                             {foreach $vendedores as $vendedor }
                             <tr>
@@ -72,8 +74,8 @@
                                 <td><a href="../controller/controllerManterVendedor.php?opc=Editar&cod={$vendedor->getId_vendedor()}">Editar</a> || <a href="../controller/controllerManterVendedor.php?opc=Remover&cod={$vendedor->getId_vendedor()}">Remover</a></td>
                             </tr>
                             {/foreach}
-                        </table>
-                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" class="affix">Cadastrar nova Loja</a>
+                        </table> 
+                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" >Cadastrar nova Loja</a>
                     </div>
 
                 </section>

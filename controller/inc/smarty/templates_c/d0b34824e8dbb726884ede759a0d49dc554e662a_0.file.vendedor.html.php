@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-01 04:41:28
+<?php /* Smarty version 3.1.24, created on 2016-02-01 22:33:07
          compiled from "F:/xampp/htdocs/SCJ/view/vendedor.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1477556aed3e8973b79_55390915%%*/
+/*%%SmartyHeaderCode:376056afcf13400566_66237278%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd0b34824e8dbb726884ede759a0d49dc554e662a' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/vendedor.html',
-      1 => 1454297964,
+      1 => 1454362346,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1477556aed3e8973b79_55390915',
+  'nocache_hash' => '376056afcf13400566_66237278',
   'variables' => 
   array (
     'nome' => 0,
@@ -22,13 +22,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56aed3e89bcda6_50750584',
+  'unifunc' => 'content_56afcf13449186_14381782',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56aed3e89bcda6_50750584')) {
-function content_56aed3e89bcda6_50750584 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56afcf13449186_14381782')) {
+function content_56afcf13449186_14381782 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1477556aed3e8973b79_55390915';
+$_smarty_tpl->properties['nocache_hash'] = '376056afcf13400566_66237278';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -77,7 +77,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1477556aed3e8973b79_55390915';
 
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerJoia.php">Cadastro de Jóia</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
@@ -99,11 +99,13 @@ $_smarty_tpl->properties['nocache_hash'] = '1477556aed3e8973b79_55390915';
                     <div id="controladores">
                         <br/>
                         <h1>Controle de Vendedores</h1>
-                        <table border="1">
+                        
+                        <table class="table">
                             <tr>
-                                <td>Nome do Vendedor</td>
-                                <td>Telefone</td>
-                                <td>Celular</td>
+                                <td class="all">Nome do Vendedor</td>
+                                <td class="all">Telefone</td>
+                                <td class="all">Celular</td>
+                                <td class="all">Opções</td>
                             </tr>
                             <?php
 $_from = $_smarty_tpl->tpl_vars['vendedores']->value;
@@ -131,8 +133,8 @@ $foreach_vendedor_Sav = $_smarty_tpl->tpl_vars['vendedor'];
 $_smarty_tpl->tpl_vars['vendedor'] = $foreach_vendedor_Sav;
 }
 ?>
-                        </table>
-                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" class="affix">Cadastrar nova Loja</a>
+                        </table> 
+                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" >Cadastrar nova Loja</a>
                     </div>
 
                 </section>
