@@ -11,7 +11,7 @@
  *
  * @author Ricardo
  */
-class configs {
+class ConfiguracoesData {
     //Converte uma data no formato americano para o formato brasileiro
     public static function dateToBr($date){
         $d = explode('-', $date);
