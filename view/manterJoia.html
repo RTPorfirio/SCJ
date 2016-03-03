@@ -59,7 +59,7 @@
                         <br/>
 
                             <h1>Registro de nova Joia</h1>
-                            <form action="../controller/manterJoia.php?opc=incluir" method="post">
+                            <form enctype="multipart/form-data" action="../controller/manterJoia.php?opc=incluir" method="post" >
                                 <table class="table">
                                     <tr>
 
@@ -114,7 +114,7 @@
 
                                         <td><label for='numero'>Cor</label></td>
                                         <td>
-                                            <select class="form-control" id='numero' name="numero">
+                                            <select class="form-control" id='cor' name="cor">
                                                 {foreach $cores as $cor }
                                                 <option value="{$cor->getId_cor()}">{$cor->getNome_cor()}</option>
                                                 {/foreach}
@@ -139,8 +139,8 @@
                                     </tr>
                                     <tr>
 
-                                        <td><label for='img'>Imagem</label></td>
-                                        <td><input class="form-control" type='file' id='img' name='img'/></td>
+                                        <td><label for='imagem'>Imagem</label></td>
+                                        <td><input class="form-control" type='file' name='imagem'/></td>
                                     </tr>
                                     <tr>
 

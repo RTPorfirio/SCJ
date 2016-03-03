@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-02 05:21:11
+<?php /* Smarty version 3.1.24, created on 2016-03-03 14:02:12
          compiled from "F:/xampp/htdocs/SCJ/view/manterJoia.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:2508956b02eb7b793d2_92129255%%*/
+/*%%SmartyHeaderCode:2245156d835d4d218e0_62545619%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6449b5aa0f2f48e3ca0d0f6e98acba906b3abc71' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterJoia.html',
-      1 => 1454386870,
+      1 => 1457009600,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2508956b02eb7b793d2_92129255',
+  'nocache_hash' => '2245156d835d4d218e0_62545619',
   'variables' => 
   array (
     'nome' => 0,
@@ -28,13 +28,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56b02eb7bbae65_29579746',
+  'unifunc' => 'content_56d835d4d58ef0_82944788',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56b02eb7bbae65_29579746')) {
-function content_56b02eb7bbae65_29579746 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56d835d4d58ef0_82944788')) {
+function content_56d835d4d58ef0_82944788 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2508956b02eb7b793d2_92129255';
+$_smarty_tpl->properties['nocache_hash'] = '2245156d835d4d218e0_62545619';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -106,7 +106,7 @@ $_smarty_tpl->properties['nocache_hash'] = '2508956b02eb7b793d2_92129255';
                         <br/>
 
                             <h1>Registro de nova Joia</h1>
-                            <form action="../controller/manterJoia.php?opc=incluir" method="post">
+                            <form enctype="multipart/form-data" action="../controller/manterJoia.php?opc=incluir" method="post" >
                                 <table class="table">
                                     <tr>
 
@@ -191,7 +191,7 @@ $_smarty_tpl->tpl_vars['loja'] = $foreach_loja_Sav;
 
                                         <td><label for='numero'>Cor</label></td>
                                         <td>
-                                            <select class="form-control" id='numero' name="numero">
+                                            <select class="form-control" id='cor' name="cor">
                                                 <?php
 $_from = $_smarty_tpl->tpl_vars['cores']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -246,8 +246,8 @@ $_smarty_tpl->tpl_vars['pedra'] = $foreach_pedra_Sav;
                                     </tr>
                                     <tr>
 
-                                        <td><label for='img'>Imagem</label></td>
-                                        <td><input class="form-control" type='file' id='img' name='img'/></td>
+                                        <td><label for='imagem'>Imagem</label></td>
+                                        <td><input class="form-control" type='file' name='imagem'/></td>
                                     </tr>
                                     <tr>
 

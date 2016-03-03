@@ -30,6 +30,14 @@ class CorDao {
         }
         return $array;
     }
+    
+    public static function  SelecionaUltimoId(){
+        $conexao = new ConnectBD();
+        $conn = $conexao->connectBD();
+        $busca = $conn->prepare("SELECT MAX(id_joia) from joias");
+        $busca->execute();
+        return $busca;
+    }
 
     public static function ListaCor($id_Cor) {
         $conexao = new ConnectBD();

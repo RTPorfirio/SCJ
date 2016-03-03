@@ -17,18 +17,18 @@ class configImg {
     private $config;
     private $erro;
 
-    function __construct($imagem) {
+    function __construct($imagem,$tamanho,$largura,$altura) {
         $this->imagem = $imagem;
         $this->config = $config = array();
 
         // Tamanho máximo do arquivo (em bytes) 
-        $config["tamanho"] = 106883;
+        $config["tamanho"] = $tamanho * 1024;
 
         // Largura máxima (pixels) 
-        $config["largura"] = 350;
+        $config["largura"] = $largura;
 
         // Altura máxima (pixels) 
-        $config["altura"] = 180;
+        $config["altura"] = $altura;
 
 
         $this->erro = $erro = array();

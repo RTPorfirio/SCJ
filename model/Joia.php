@@ -11,7 +11,6 @@
  *
  * @author Ricardo
  */
-
 include '../dao/JoiaDao.php';
 
 class Joia {
@@ -20,47 +19,37 @@ class Joia {
     private $preco_custo;
     private $preco_venda;
     private $consignado;
-    private $quantidade;
     private $nota_fiscal;
     private $observacao;
+    private $codBase;
     private $qr_code;
-    private $loja_id_loja;
-    private $cor_id_cor;
-    private $tipo_id_tipo;
-    private $pedra_id_pedra;
     private $tamanho;
     private $imagem;
 
     function __construct() {
-        if (func_num_args() == 14) {
+        if (func_num_args() == 10) {
             $this->id_joia = func_get_arg(0);
             $this->preco_custo = func_get_arg(1);
             $this->preco_venda = func_get_arg(2);
             $this->consignado = func_get_arg(3);
-            $this->quantidade = func_get_arg(4);
-            $this->nota_fiscal = func_get_arg(5);
-            $this->observacao = func_get_arg(6);
-            $this->qr_code = func_get_arg(7);
-            $this->loja_id_loja = func_get_arg(8);
-            $this->cor_id_cor = func_get_arg(9);
-            $this->tipo_id_tipo = func_get_arg(10);
-            $this->pedra_id_pedra = func_get_arg(11);
-            $this->tamanho = func_get_arg(12);
-            $this->imagem = func_get_arg(13);
-        } else {
-            $this->preco_custo = func_get_arg(0);
-            $this->preco_venda = func_get_arg(1);
-            $this->consignado = func_get_arg(2);
-            $this->quantidade = func_get_arg(3);
             $this->nota_fiscal = func_get_arg(4);
             $this->observacao = func_get_arg(5);
-            $this->qr_code = func_get_arg(6);
-            $this->loja_id_loja = func_get_arg(7);
-            $this->cor_id_cor = func_get_arg(8);
-            $this->tipo_id_tipo = func_get_arg(9);
-            $this->pedra_id_pedra = func_get_arg(10);
-            $this->tamanho = func_get_arg(11);
-            $this->imagem = func_get_arg(12);
+            $this->codBase = func_get_arg(6);
+            $this->qr_code = func_get_arg(7);
+            $this->tamanho = func_get_arg(8);
+            $this->imagem = func_get_arg(9);
+        } else {
+            if (func_num_args() == 9) {
+                $this->preco_custo = func_get_arg(0);
+                $this->preco_venda = func_get_arg(1);
+                $this->consignado = func_get_arg(2);
+                $this->nota_fiscal = func_get_arg(3);
+                $this->observacao = func_get_arg(4);
+                $this->codBase = func_get_arg(5);
+                $this->qr_code = func_get_arg(6);
+                $this->tamanho = func_get_arg(7);
+                $this->imagem = func_get_arg(8);
+            }
         }
     }
 
@@ -80,10 +69,6 @@ class Joia {
         return $this->consignado;
     }
 
-    function getQuantidade() {
-        return $this->quantidade;
-    }
-
     function getNota_fiscal() {
         return $this->nota_fiscal;
     }
@@ -92,24 +77,12 @@ class Joia {
         return $this->observacao;
     }
 
+    function getCodBase() {
+        return $this->codBase;
+    }
+
     function getQr_code() {
         return $this->qr_code;
-    }
-
-    function getLoja_id_loja() {
-        return $this->loja_id_loja;
-    }
-
-    function getCor_id_cor() {
-        return $this->cor_id_cor;
-    }
-
-    function getTipo_id_tipo() {
-        return $this->tipo_id_tipo;
-    }
-
-    function getPedra_id_pedra() {
-        return $this->pedra_id_pedra;
     }
 
     function getTamanho() {
@@ -119,6 +92,7 @@ class Joia {
     function getImagem() {
         return $this->imagem;
     }
+
 
     function setId_joia($id_joia) {
         $this->id_joia = $id_joia;
@@ -136,10 +110,6 @@ class Joia {
         $this->consignado = $consignado;
     }
 
-    function setQuantidade($quantidade) {
-        $this->quantidade = $quantidade;
-    }
-
     function setNota_fiscal($nota_fiscal) {
         $this->nota_fiscal = $nota_fiscal;
     }
@@ -148,24 +118,12 @@ class Joia {
         $this->observacao = $observacao;
     }
 
+    function setCodBase($codBase) {
+        $this->codBase = $codBase;
+    }
+
     function setQr_code($qr_code) {
         $this->qr_code = $qr_code;
-    }
-
-    function setLoja_id_loja($loja_id_loja) {
-        $this->loja_id_loja = $loja_id_loja;
-    }
-
-    function setCor_id_cor($cor_id_cor) {
-        $this->cor_id_cor = $cor_id_cor;
-    }
-
-    function setTipo_id_tipo($tipo_id_tipo) {
-        $this->tipo_id_tipo = $tipo_id_tipo;
-    }
-
-    function setPedra_id_pedra($pedra_id_pedra) {
-        $this->pedra_id_pedra = $pedra_id_pedra;
     }
 
     function setTamanho($tamanho) {
@@ -175,6 +133,7 @@ class Joia {
     function setImagem($imagem) {
         $this->imagem = $imagem;
     }
+
 
     public static function listaJoias() {
         return JoiaDao::listaJoias();
@@ -196,4 +155,7 @@ class Joia {
         return JoiaDao::deletaJoia($joia);
     }
 
+    public static function  SelecionaUltimoId(){
+        return JoiaDao::SelecionaUltimoId();
+    }
 }
