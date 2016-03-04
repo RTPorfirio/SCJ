@@ -68,14 +68,14 @@
                             </tr>
                             {foreach $vendedores as $vendedor }
                             <tr>
-                                <td>{$vendedor->getNome_vendedor()}</td>
+                                <td><a href="../controller/controllerPasta.php?cod={$vendedor->getId_vendedor()}">{$vendedor->getNome_vendedor()}</a></td>
                                 <td>{$vendedor->getTelefone()}</td>
                                 <td>{$vendedor->getCelular()}</td>
                                 <td><a href="../controller/controllerManterVendedor.php?opc=Editar&cod={$vendedor->getId_vendedor()}">Editar</a> || <a href="../controller/controllerManterVendedor.php?opc=Remover&cod={$vendedor->getId_vendedor()}">Remover</a></td>
                             </tr>
                             {/foreach}
                         </table> 
-                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" >Cadastrar nova Loja</a>
+                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" >Cadastrar novo Vendedor</a>
                     </div>
 
                 </section>

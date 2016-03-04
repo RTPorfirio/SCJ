@@ -34,7 +34,7 @@ class VendedorDao {
     public static function InsereVendedor($vendedor) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $insere = $conn->prepare("INSERT INTO `crisjoias`.`vendedor` (`nome_vendedor`, `rg`, `cpf`, `telefone`, `celular`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `cep`) VALUES (:nome,:rg,:cpf, :telefone, :celular, :logradouro, :numero, :complemento, :bairro, :cidade, :estado, :cep)");
+        $insere = $conn->prepare("INSERT INTO `crisjoias`.`vendedor` (`nome_vendedor`, `rg`, `cpf`, `telefone`, `celular`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `cep`, `pasta`) VALUES (:nome,:rg,:cpf, :telefone, :celular, :logradouro, :numero, :complemento, :bairro, :cidade, :estado, :cep, :pasta)");
         $insere->bindValue(":nome", $vendedor->getNome_vendedor(), PDO::PARAM_STR);
         $insere->bindValue(":rg", $vendedor->getRg(), PDO::PARAM_STR);
         $insere->bindValue(":cpf", $vendedor->getCpf(), PDO::PARAM_STR);
@@ -47,6 +47,9 @@ class VendedorDao {
         $insere->bindValue(":cidade", $vendedor->getCelular(), PDO::PARAM_STR);
         $insere->bindValue(":estado", $vendedor->getCelular(), PDO::PARAM_STR);
         $insere->bindValue(":cep", $vendedor->getCelular(), PDO::PARAM_STR);
+        $insere->bindValue(":pasta", $vendedor->getPasta(), PDO::PARAM_STR);
+        
+        
         if ($insere->execute() == 1)
             return true;
         else
@@ -84,6 +87,8 @@ class VendedorDao {
         $edita->bindValue(":estado", $vendedor->getEstado(), PDO::PARAM_STR);
         $edita->bindValue(":cep", $vendedor->getCep(), PDO::PARAM_STR);
 
+        $edita->bindValue(":pasta", $vendedor->getPasta(), PDO::PARAM_STR);
+
         if ($edita->execute() == 1)
             return true;
         else
@@ -104,7 +109,8 @@ class VendedorDao {
                 , $sm['bairro']
                 , $sm['cidade']
                 , $sm['estado']
-                , $sm['cep']);
+                , $sm['cep']
+                , $sm['pasta']);
         return $vendedor;
     }
 

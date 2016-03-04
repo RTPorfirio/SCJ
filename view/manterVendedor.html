@@ -72,6 +72,11 @@
                                     </tr>
                                     <tr>
 
+                                        <td><label for='nome'>Nome da Pasta</label></td>
+                                        <td><input class="form-control" type="text" type='text' id='pasta' name='pasta' {if $opc eq 'Editar'} readonly {/if} /></td>
+                                    </tr>
+                                    <tr>
+
                                         <td><label for='nome'>Telefone</label></td>
                                         <td><input class="form-control" type="text" id='tel' name='tel' {if $opc eq 'Editar'}value="{$telefone}"{/if}/></td>
                                     </tr>

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-01 22:33:07
+<?php /* Smarty version 3.1.24, created on 2016-03-04 06:40:56
          compiled from "F:/xampp/htdocs/SCJ/view/vendedor.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:376056afcf13400566_66237278%%*/
+/*%%SmartyHeaderCode:2552656d91fe82ddb81_12238439%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd0b34824e8dbb726884ede759a0d49dc554e662a' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/vendedor.html',
-      1 => 1454362346,
+      1 => 1457070054,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '376056afcf13400566_66237278',
+  'nocache_hash' => '2552656d91fe82ddb81_12238439',
   'variables' => 
   array (
     'nome' => 0,
@@ -22,13 +22,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56afcf13449186_14381782',
+  'unifunc' => 'content_56d91fe8312ce6_64782484',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56afcf13449186_14381782')) {
-function content_56afcf13449186_14381782 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56d91fe8312ce6_64782484')) {
+function content_56d91fe8312ce6_64782484 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '376056afcf13400566_66237278';
+$_smarty_tpl->properties['nocache_hash'] = '2552656d91fe82ddb81_12238439';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -119,8 +119,9 @@ $_smarty_tpl->tpl_vars['vendedor']->_loop = true;
 $foreach_vendedor_Sav = $_smarty_tpl->tpl_vars['vendedor'];
 ?>
                             <tr>
-                                <td><?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getNome_vendedor();?>
-</td>
+                                <td><a href="../controller/controllerPasta.php?cod=<?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getId_vendedor();?>
+"><?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getNome_vendedor();?>
+</a></td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getTelefone();?>
 </td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getCelular();?>
@@ -134,7 +135,7 @@ $_smarty_tpl->tpl_vars['vendedor'] = $foreach_vendedor_Sav;
 }
 ?>
                         </table> 
-                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" >Cadastrar nova Loja</a>
+                        <a href="../controller/controllerManterVendedor.php?opc=Incluir" >Cadastrar novo Vendedor</a>
                     </div>
 
                 </section>

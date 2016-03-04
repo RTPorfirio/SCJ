@@ -1,34 +1,37 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-01 22:33:10
-         compiled from "F:/xampp/htdocs/SCJ/view/tipo.html" */ ?>
+<?php /* Smarty version 3.1.24, created on 2016-03-04 06:36:13
+         compiled from "F:/xampp/htdocs/SCJ/view/manterPasta.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:439356afcf161ad729_33984284%%*/
+/*%%SmartyHeaderCode:3093756d91ecd4018f7_86459231%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '81a5d0e4b438e2a34460fed1ebe16033bed2f186' => 
+    'a5dfa0bb5ad653bff3b02c28c47c4ac34707ccb1' => 
     array (
-      0 => 'F:/xampp/htdocs/SCJ/view/tipo.html',
-      1 => 1454362340,
+      0 => 'F:/xampp/htdocs/SCJ/view/manterPasta.html',
+      1 => 1457069742,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '439356afcf161ad729_33984284',
+  'nocache_hash' => '3093756d91ecd4018f7_86459231',
   'variables' => 
   array (
     'nome' => 0,
-    'tipos' => 0,
-    'tipo' => 0,
+    'cabecalho' => 0,
+    'cod' => 0,
+    'id' => 0,
+    'arquivos' => 0,
+    'arquivo' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56afcf161e3181_83477487',
+  'unifunc' => 'content_56d91ecd436407_72022988',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56afcf161e3181_83477487')) {
-function content_56afcf161e3181_83477487 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56d91ecd436407_72022988')) {
+function content_56d91ecd436407_72022988 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '439356afcf161ad729_33984284';
+$_smarty_tpl->properties['nocache_hash'] = '3093756d91ecd4018f7_86459231';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -98,38 +101,61 @@ $_smarty_tpl->properties['nocache_hash'] = '439356afcf161ad729_33984284';
                 <section>
                     <div id="controladores">
                         <br/>
-                        <h1>Controle de Tipos</h1>
-                        <table border="1">
-                            <tr>
-                                <td>Nome do Tipo</td>
-                                <td>Opção</td>
-                            </tr>
-                            <?php
-$_from = $_smarty_tpl->tpl_vars['tipos']->value;
+                        <h1><?php echo $_smarty_tpl->tpl_vars['cabecalho']->value;?>
+</h1>
+                        <br/>
+                        <form method="post" onclick="geraPasta()" action="../controller/manterNovaPagina.php?dir=<?php echo $_smarty_tpl->tpl_vars['cod']->value;?>
+&cod=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+"/>
+                        <input type="submit" value='Criar Nova Pasta'><br/>
+                        
+                        <?php echo '<script'; ?>
+>
+                            function geraPasta(){
+                                var a = window.prompt("Entre com o nome da pasta");
+                                document.getElementById('novaPasta').value=a;
+                              //  window.location.assign( );
+                                
+                            }
+                        <?php echo '</script'; ?>
+>
+                        <input type="hidden" name="novaPasta" id='novaPasta'>
+                        </form>
+                        <hr>
+                        <?php echo '<script'; ?>
+>var i=1;var txt="";var ress;<?php echo '</script'; ?>
+>
+                        <?php
+$_from = $_smarty_tpl->tpl_vars['arquivos']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
-$_smarty_tpl->tpl_vars['tipo'] = new Smarty_Variable;
-$_smarty_tpl->tpl_vars['tipo']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
-$_smarty_tpl->tpl_vars['tipo']->_loop = true;
-$foreach_tipo_Sav = $_smarty_tpl->tpl_vars['tipo'];
+$_smarty_tpl->tpl_vars['arquivo'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['arquivo']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['arquivo']->value) {
+$_smarty_tpl->tpl_vars['arquivo']->_loop = true;
+$foreach_arquivo_Sav = $_smarty_tpl->tpl_vars['arquivo'];
 ?>
-                            <tr>
-                                <td><?php echo $_smarty_tpl->tpl_vars['tipo']->value->getNome_tipo();?>
-</td>
-                                <td><a href="../controller/controllerManterTipo.php?opc=Editar&cod=<?php echo $_smarty_tpl->tpl_vars['tipo']->value->getId_tipo();?>
-">Editar</a> || <a href="../controller/controllerManterTipo.php?opc=Remover&cod=<?php echo $_smarty_tpl->tpl_vars['tipo']->value->getId_tipo();?>
-">Remover</a></td>
-                            </tr>
-                            <?php
-$_smarty_tpl->tpl_vars['tipo'] = $foreach_tipo_Sav;
+                          <?php echo '<script'; ?>
+>
+                              if(i%2){
+                                  txt="<?php echo $_smarty_tpl->tpl_vars['arquivo']->value;?>
+";
+                                  txt=txt.split("/");
+                                  ress=txt[3];
+                                  document.write("<a href='<?php echo $_smarty_tpl->tpl_vars['arquivo']->value;?>
+'>"+ress+"</a> <br/>");
+                              }
+                              i++;
+                         <?php echo '</script'; ?>
+>
+                        <?php
+$_smarty_tpl->tpl_vars['arquivo'] = $foreach_arquivo_Sav;
 }
 ?>
-                        </table>
-                        <a href="../controller/controllerManterTipo.php?opc=Incluir" class="affix">Cadastrar novo tipo</a>
+                        
                     </div>
-
+                    
                 </section>
             </article>
         </div>

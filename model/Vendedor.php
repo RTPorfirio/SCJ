@@ -29,9 +29,10 @@ class Vendedor {
     private $cidade;
     private $estado;
     private $cep;
+    private $pasta;
 
     function __construct() {
-        if (func_num_args() == 13) {
+        if (func_num_args() == 14) {
             $this->id_vendedor = func_get_arg(0);
             $this->nome_vendedor = func_get_arg(1);
             $this->rg = func_get_arg(2);
@@ -45,6 +46,7 @@ class Vendedor {
             $this->cidade = func_get_arg(10);
             $this->estado = func_get_arg(11);
             $this->cep = func_get_arg(12);
+            $this->pasta = func_get_arg(13);
         }
         else{
             if(func_num_args() == 12) {
@@ -60,6 +62,7 @@ class Vendedor {
             $this->cidade = func_get_arg(9);
             $this->estado = func_get_arg(10);
             $this->cep = func_get_arg(11);
+            $this->pasta = func_get_arg(12);
         }
         }
     }
@@ -116,6 +119,9 @@ class Vendedor {
         return $this->cep;
     }
 
+    function getPasta() {
+        return $this->pasta;
+    }
     function setId_vendedor($id_vendedor) {
         $this->id_vendedor = $id_vendedor;
     }
@@ -168,6 +174,10 @@ class Vendedor {
         $this->cep = $cep;
     }
 
+    function setPasta($pasta) {
+        $this->pasta = $pasta;
+    }
+    
     public static function listaVendedores() {
         return VendedorDao::listaVendedores();
     }

@@ -39,6 +39,7 @@ if ($opc != "Remover") {
     $rg = addslashes(trim($_POST['rg']));
     $cpf = addslashes(trim($_POST['cpf']));
     $celular = addslashes(trim($_POST['celular']));
+    $pasta = addslashes(trim($_POST['pasta']));
 }
 
 
@@ -54,8 +55,9 @@ if ($opc == "Editar") {
 } else {
     if ($opc == "Incluir") {
         $vendedor = new Vendedor();
-        setaDados($vendedor, $nomeVendedor, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento, $rg, $cpf, $celular);
+        setaDados($vendedor, $nomeVendedor, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento, $rg, $cpf, $celular, $pasta);
         Vendedor::insereVendedor($vendedor);
+        mkdir("../vendedores/".$pasta);
         header("location:../controller/controllerVendedor.php");
     } else {
         $cod = addslashes(trim($_GET['cod']));
@@ -69,7 +71,7 @@ if ($opc == "Editar") {
     }
 }
 
-function setaDados($vendedor, $nomeVendedor, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento, $rg, $cpf, $celular) {
+function setaDados($vendedor, $nomeVendedor, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento, $rg, $cpf, $celular,$pasta) {
     $vendedor->setNome_vendedor($nomeVendedor);
     $vendedor->setTelefone($tel);
     $vendedor->setLogradouro($rua);
@@ -82,4 +84,5 @@ function setaDados($vendedor, $nomeVendedor, $tel, $rua, $bairro, $cidade, $cep,
     $vendedor->setRg($rg);
     $vendedor->setCpf($cpf);
     $vendedor->setCelular($celular);
+    $vendedor->setPasta($pasta);
 }

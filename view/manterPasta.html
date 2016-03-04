@@ -1,36 +1,3 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-02 19:26:20
-         compiled from "F:/xampp/htdocs/SCJ/view/manterPedra.html" */ ?>
-<?php
-/*%%SmartyHeaderCode:233956b0f4cc95d543_35742694%%*/
-if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    '8dcc5cb347975e341927f60620898fe387bcb684' => 
-    array (
-      0 => 'F:/xampp/htdocs/SCJ/view/manterPedra.html',
-      1 => 1454362320,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '233956b0f4cc95d543_35742694',
-  'variables' => 
-  array (
-    'nome' => 0,
-    'opc' => 0,
-    'nomePedra' => 0,
-    'cod' => 0,
-  ),
-  'has_nocache_code' => false,
-  'version' => '3.1.24',
-  'unifunc' => 'content_56b0f4cca192e9_34935711',
-),false);
-/*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56b0f4cca192e9_34935711')) {
-function content_56b0f4cca192e9_34935711 ($_smarty_tpl) {
-
-$_smarty_tpl->properties['nocache_hash'] = '233956b0f4cc95d543_35742694';
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -40,18 +7,10 @@ $_smarty_tpl->properties['nocache_hash'] = '233956b0f4cc95d543_35742694';
         <link rel="stylesheet" href="../view/css/bootstrap.css">
         <link rel="stylesheet" href="../view/css/style.css">
 
-        <?php echo '<script'; ?>
- type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- type="text/javascript" src="../view/javascripts/main.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
->
+        <script type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
+        <script type="text/javascript" src="../view/javascripts/main.js"></script>
+        <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
 
 
     </head>
@@ -61,8 +20,7 @@ $_smarty_tpl->properties['nocache_hash'] = '233956b0f4cc95d543_35742694';
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
-<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
+                    <nav id='infos'>Bem vindo {$nome}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
@@ -99,31 +57,37 @@ $_smarty_tpl->properties['nocache_hash'] = '233956b0f4cc95d543_35742694';
                 <section>
                     <div id="controladores">
                         <br/>
-                        <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>
-                        <h1>Editar a Pedra <?php echo $_smarty_tpl->tpl_vars['nomePedra']->value;?>
-</h1>
-                        <form action="../controller/manterPedra.php?cod=<?php echo $_smarty_tpl->tpl_vars['cod']->value;?>
-&opc=<?php echo $_smarty_tpl->tpl_vars['opc']->value;?>
-" method="post">
-                            <?php } else { ?>
-                            <h1>Registro de nova Pedra</h1>
-                            <form action="../controller/manterPedra.php?opc=<?php echo $_smarty_tpl->tpl_vars['opc']->value;?>
-" method="post">
-                                <?php }?>
-                                <table>
-                                    <tr>
-                                        
-                                        <td><label for='nome'>Nome</label></td>
-                                        <td><input type='text' id='nome' name='nome' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['nomePedra']->value;?>
-"<?php }?>/></td>
-                                    </tr><br>
-                                    <tr>
-                                        <td colspan="2"><input type="submit" value="Confirmar Operação"/>
-                                    </tr>
-                                </table>
-                            </form>
+                        <h1>{$cabecalho}</h1>
+                        <br/>
+                        <form method="post" onclick="geraPasta()" action="../controller/manterNovaPagina.php?dir={$cod}&cod={$id}"/>
+                        <input type="submit" value='Criar Nova Pasta'><br/>
+                        
+                        <script>
+                            function geraPasta(){
+                                var a = window.prompt("Entre com o nome da pasta");
+                                document.getElementById('novaPasta').value=a;
+                              //  window.location.assign( );
+                                
+                            }
+                        </script>
+                        <input type="hidden" name="novaPasta" id='novaPasta'>
+                        </form>
+                        <hr>
+                        <script>var i=1;var txt="";var ress;</script>
+                        {foreach $arquivos as $arquivo}
+                          <script>
+                              if(i%2){
+                                  txt="{$arquivo}";
+                                  txt=txt.split("/");
+                                  ress=txt[3];
+                                  document.write("<a href='{$arquivo}'>"+ress+"</a> <br/>");
+                              }
+                              i++;
+                         </script>
+                        {/foreach}
+                        
                     </div>
-
+                    
                 </section>
             </article>
         </div>
@@ -131,6 +95,4 @@ $_smarty_tpl->properties['nocache_hash'] = '233956b0f4cc95d543_35742694';
 
         </footer>
     </body>
-</html><?php }
-}
-?>
+</html>

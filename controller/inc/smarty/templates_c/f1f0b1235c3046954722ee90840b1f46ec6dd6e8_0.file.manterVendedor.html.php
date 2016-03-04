@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-02-01 22:32:52
+<?php /* Smarty version 3.1.24, created on 2016-03-04 06:39:04
          compiled from "F:/xampp/htdocs/SCJ/view/manterVendedor.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:2759956afcf04bbd798_92102006%%*/
+/*%%SmartyHeaderCode:392156d91f78f18d27_54902264%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f1f0b1235c3046954722ee90840b1f46ec6dd6e8' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterVendedor.html',
-      1 => 1454362331,
+      1 => 1457048737,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2759956afcf04bbd798_92102006',
+  'nocache_hash' => '392156d91f78f18d27_54902264',
   'variables' => 
   array (
     'nome' => 0,
@@ -34,13 +34,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56afcf04c180b8_56307996',
+  'unifunc' => 'content_56d91f7907b8d6_93005487',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56afcf04c180b8_56307996')) {
-function content_56afcf04c180b8_56307996 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56d91f7907b8d6_93005487')) {
+function content_56d91f7907b8d6_93005487 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2759956afcf04bbd798_92102006';
+$_smarty_tpl->properties['nocache_hash'] = '392156d91f78f18d27_54902264';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -127,6 +127,11 @@ $_smarty_tpl->properties['nocache_hash'] = '2759956afcf04bbd798_92102006';
                                         <td><label for='nome'>Nome</label></td>
                                         <td><input class="form-control" type="text" type='text' id='nome' name='nome' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['nomeVendedor']->value;?>
 "<?php }?> /></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><label for='nome'>Nome da Pasta</label></td>
+                                        <td><input class="form-control" type="text" type='text' id='pasta' name='pasta' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?> readonly <?php }?> /></td>
                                     </tr>
                                     <tr>
 
