@@ -67,7 +67,7 @@ class TipoDao {
     public static function EditaTipo($tipo) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $edita = $conn->prepare("UPDATE `crisjoias`.`tipo` SET `nome_tipo` = :nome WHERE `tipo`.`id_tipo` = :id;;");
+        $edita = $conn->prepare("UPDATE `crisjoias`.`tipo` SET `nome_tipo` = :nome WHERE `tipo`.`id_tipo` = :id;");
         $edita->bindValue(":id", $tipo->getId_tipo(), PDO::PARAM_INT);
         $edita->bindValue(":nome", $tipo->getNome_tipo(), PDO::PARAM_STR);
         if ($edita->execute() == 1)

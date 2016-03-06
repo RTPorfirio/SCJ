@@ -103,12 +103,17 @@ footer{
 }
 
 .leitorQR{
-    width:300px;
-    height:250px;
-    border:1px #000;
-    visibility: hidden;
+    width:350px;
+    height:350px;
+    visibility: visible;
 }
 
 #controladores{
 text-align: center;
+}
+
+#topoTabelaEsquerda{
+    position: absolute;
+    top:360px;
+    margin-left: 10px;
 }

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-04 06:17:44
+<?php /* Smarty version 3.1.24, created on 2016-03-05 11:31:20
          compiled from "F:/xampp/htdocs/SCJ/view/home.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:730156d91a78079594_69431939%%*/
+/*%%SmartyHeaderCode:766656dab5787efb29_60479451%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6cba14b8666d7077099642865a2d01487c769a1d' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/home.html',
-      1 => 1454362280,
+      1 => 1457172197,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '730156d91a78079594_69431939',
+  'nocache_hash' => '766656dab5787efb29_60479451',
   'variables' => 
   array (
     'nome' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56d91a7809d3e8_19182129',
+  'unifunc' => 'content_56dab578819832_32450587',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56d91a7809d3e8_19182129')) {
-function content_56d91a7809d3e8_19182129 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56dab578819832_32450587')) {
+function content_56dab578819832_32450587 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '730156d91a78079594_69431939';
+$_smarty_tpl->properties['nocache_hash'] = '766656dab5787efb29_60479451';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -94,7 +94,7 @@ $_smarty_tpl->properties['nocache_hash'] = '730156d91a78079594_69431939';
             </nav>
             <article>
                 <section>
-                    <header id="busca">
+  <header id="busca">
 
                         <div id="formulario">
                             <div id="reahder"></div>
@@ -108,7 +108,7 @@ $_smarty_tpl->properties['nocache_hash'] = '730156d91a78079594_69431939';
                             <div class="leitorQR" id="reader"> </div>
                             <form id="pesquisa" action="" method ="post" enctype="multipart/form-data">
                                 <h6 class="center">Resultado</h6>
-                                <textarea id="read" cols="30" rows="1" name ="s"> </textarea>
+                                <textarea id="read" cols="30" rows="1" name ="s" > </textarea>
                             </form>
                             <div id = "results"></div>
                         </div>

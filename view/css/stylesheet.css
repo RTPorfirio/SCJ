@@ -437,3 +437,7 @@ Small Device Styles
   }
 
 }
+
+#apaga{
+    visibility: hidden;
+}
