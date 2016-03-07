@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-07 01:19:05
+<?php /* Smarty version 3.1.24, created on 2016-03-07 06:43:17
          compiled from "F:/xampp/htdocs/SCJ/view/manterJoia.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:3250056dcc8f9221509_89932204%%*/
+/*%%SmartyHeaderCode:6856dd14f5a1a664_77816503%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6449b5aa0f2f48e3ca0d0f6e98acba906b3abc71' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterJoia.html',
-      1 => 1457309857,
+      1 => 1457329394,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3250056dcc8f9221509_89932204',
+  'nocache_hash' => '6856dd14f5a1a664_77816503',
   'variables' => 
   array (
     'nome' => 0,
@@ -28,13 +28,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56dcc8f926c082_18740510',
+  'unifunc' => 'content_56dd14f5ad95b4_09354937',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56dcc8f926c082_18740510')) {
-function content_56dcc8f926c082_18740510 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56dd14f5ad95b4_09354937')) {
+function content_56dd14f5ad95b4_09354937 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '3250056dcc8f9221509_89932204';
+$_smarty_tpl->properties['nocache_hash'] = '6856dd14f5a1a664_77816503';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -128,7 +128,22 @@ $_smarty_tpl->properties['nocache_hash'] = '3250056dcc8f9221509_89932204';
                                 <tr>
 
                                     <td><label for='quantidade'>Quantidade</label></td>
-                                    <td><input class="form-control" type='text' id='quantidade' name='quantidade'/></td>
+                                    <td><input class="form-control" type='text' id='quantidade' name='quantidade' min ="1" max="85" maxlength="2" onblur="apenas85()" required="required" pattern="\d[0-9]+$"/></td>
+                                <?php echo '<script'; ?>
+>
+                                    function apenas85(){
+                                        if(document.getElementById('quantidade').value>85 || document.getElementById('quantidade').value<=0 || isNaN(document.getElementById('quantidade').value)){
+                                            document.getElementById('quantidade').value="";
+                                            alert('Use uma quantidade de 1 a 85 jóias por inserção');
+                                            document.getElementById('quantidade').style.backgroundColor="#F5DEB3";
+        }                               else{
+            document.getElementById('quantidade').style.backgroundColor="#F0FFF0";
+        }
+                        
+        }
+                                    
+                                <?php echo '</script'; ?>
+>
                                 </tr>
                                 <tr>
 

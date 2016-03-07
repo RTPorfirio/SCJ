@@ -11,7 +11,7 @@
         <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
         <script type="text/javascript" src="../view/javascripts/main.js"></script>
         <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
-
+<script type="text/javascript" src="../view/javascripts/ajax.js"></script>
 
     </head>
     <body>
@@ -81,32 +81,20 @@
                                     }
                                 </script>
                                 
-                                <select id='vendedor' name='vendedor' onchange="executa()">
+                                <select id='vendedor' name='vendedor' onchange="buscarBD(this)">
                                     {foreach $vendedores as $vendedor}>
                                         <option value='{$vendedor->getId_vendedor()}'>{$vendedor->getNome_vendedor()}</option>
                                     {/foreach}
-                                    <option value="2">Vendedor 2</option>
+                                    
                                 </select>
                             </td>
                             </tr>
                             <tr>
-                                <td><center><label for='vendedor'>Relação das Pastas do Vendedor</label></center></td>
-                                <td><select>
-                                    {foreach $arquivos as $arquivo}
-                                    <option>
-                          <script>
-                              var i=0;var txt="";var ress;
-                              if(i%2==0){
-                                  txt="{$arquivo}";
-                                  txt=txt.split("/");
-                                  ress=txt[3];
-                                  if((i%2)==0){
-                                  document.write(txt);
-                              } i++;
-                          }
-                             
-                         </script></option>
-                        {/foreach}
+                                <td><center><label for='pastas'>Relação das Pastas do Vendedor</label></center></td>
+                                <td><select id="pastas" name="pastas">
+
+                                    <option></option>
+
                                 </select></td>
                             </tr>
                             <tr>

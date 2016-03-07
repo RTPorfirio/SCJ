@@ -4,7 +4,7 @@ include_once '../inc/phpqrcode/qrlib.php';
 header("Content-type: image/png");
 
 function geraEtiqueta($qrcode, $text, $preco) {
-    $im = @imagecreate(150, 38)
+    $im = @imagecreate(114, 38)
             or die("Cannot Initialize new GD image stream");
 
     $background_color = imagecolorallocate($im, 20, 243, 243);

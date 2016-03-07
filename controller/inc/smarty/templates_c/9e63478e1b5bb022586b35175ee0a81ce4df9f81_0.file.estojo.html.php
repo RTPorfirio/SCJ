@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-06 22:03:54
+<?php /* Smarty version 3.1.24, created on 2016-03-07 07:00:13
          compiled from "F:/xampp/htdocs/SCJ/view/estojo.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:2966156dc9b3adbe985_50983064%%*/
+/*%%SmartyHeaderCode:84156dd18edd187a7_91677199%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,18 +9,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9e63478e1b5bb022586b35175ee0a81ce4df9f81' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/estojo.html',
-      1 => 1457298232,
+      1 => 1457330411,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2966156dc9b3adbe985_50983064',
+  'nocache_hash' => '84156dd18edd187a7_91677199',
   'variables' => 
   array (
     'nome' => 0,
     'vendedores' => 0,
     'vendedor' => 0,
-    'arquivos' => 0,
-    'arquivo' => 0,
     'tipos' => 0,
     'tipo' => 0,
     'estojo' => 0,
@@ -29,13 +27,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56dc9b3ae0b1a3_25551790',
+  'unifunc' => 'content_56dd18edd57f59_11463701',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56dc9b3ae0b1a3_25551790')) {
-function content_56dc9b3ae0b1a3_25551790 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56dd18edd57f59_11463701')) {
+function content_56dd18edd57f59_11463701 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2966156dc9b3adbe985_50983064';
+$_smarty_tpl->properties['nocache_hash'] = '84156dd18edd187a7_91677199';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -58,7 +56,9 @@ $_smarty_tpl->properties['nocache_hash'] = '2966156dc9b3adbe985_50983064';
         <?php echo '<script'; ?>
  type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
 >
-
+<?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/ajax.js"><?php echo '</script'; ?>
+>
 
     </head>
     <body>
@@ -131,7 +131,7 @@ $_smarty_tpl->properties['nocache_hash'] = '2966156dc9b3adbe985_50983064';
                                 <?php echo '</script'; ?>
 >
                                 
-                                <select id='vendedor' name='vendedor' onchange="executa()">
+                                <select id='vendedor' name='vendedor' onchange="buscarBD(this)">
                                     <?php
 $_from = $_smarty_tpl->tpl_vars['vendedores']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -150,44 +150,16 @@ $foreach_vendedor_Sav = $_smarty_tpl->tpl_vars['vendedor'];
 $_smarty_tpl->tpl_vars['vendedor'] = $foreach_vendedor_Sav;
 }
 ?>
-                                    <option value="2">Vendedor 2</option>
+                                    
                                 </select>
                             </td>
                             </tr>
                             <tr>
-                                <td><center><label for='vendedor'>Relação das Pastas do Vendedor</label></center></td>
-                                <td><select>
-                                    <?php
-$_from = $_smarty_tpl->tpl_vars['arquivos']->value;
-if (!is_array($_from) && !is_object($_from)) {
-settype($_from, 'array');
-}
-$_smarty_tpl->tpl_vars['arquivo'] = new Smarty_Variable;
-$_smarty_tpl->tpl_vars['arquivo']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['arquivo']->value) {
-$_smarty_tpl->tpl_vars['arquivo']->_loop = true;
-$foreach_arquivo_Sav = $_smarty_tpl->tpl_vars['arquivo'];
-?>
-                                    <option>
-                          <?php echo '<script'; ?>
->
-                              var i=0;var txt="";var ress;
-                              if(i%2==0){
-                                  txt="<?php echo $_smarty_tpl->tpl_vars['arquivo']->value;?>
-";
-                                  txt=txt.split("/");
-                                  ress=txt[3];
-                                  if((i%2)==0){
-                                  document.write(txt);
-                              } i++;
-                          }
-                             
-                         <?php echo '</script'; ?>
-></option>
-                        <?php
-$_smarty_tpl->tpl_vars['arquivo'] = $foreach_arquivo_Sav;
-}
-?>
+                                <td><center><label for='pastas'>Relação das Pastas do Vendedor</label></center></td>
+                                <td><select id="pastas" name="pastas">
+
+                                    <option></option>
+
                                 </select></td>
                             </tr>
                             <tr>
