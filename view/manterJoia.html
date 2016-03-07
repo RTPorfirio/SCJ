@@ -58,100 +58,101 @@
                     <div id="controladores">
                         <br/>
 
-                            <h1>Registro de nova Joia</h1>
-                            <form enctype="multipart/form-data" action="../controller/manterJoia.php?opc=incluir" method="post" >
-                                <table class="table">
-                                    <tr>
+                        <h1>Registro de nova Joia</h1>
+                        <form enctype="multipart/form-data" action="../controller/manterJoia.php?opc=incluir" method="post" >
+                            <table class="table">
+                                <tr>
 
-                                        <td><label for='pcusto' >Preço de Custo</label></td>
-                                        <td><input class="form-control" type='text' id='pcusto' name='pcusto'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='pcusto' >Preço de Custo</label></td>
+                                    <td><input class="form-control" type='text' id='pcusto' name='pcusto'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='pvenda'>Preço de Venda</label></td>
-                                        <td><input class="form-control" type='text' id='pvenda' name='pvenda'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='pvenda'>Preço de Venda</label></td>
+                                    <td><input class="form-control" type='text' id='pvenda' name='pvenda'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='consignado'>Consignado</label></td>
-                                        <td>
-                                            Sim <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="1"> | Não <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="0">
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='consignado'>Consignado</label></td>
+                                    <td>
+                                        Sim <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="1"> | Não <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="0">
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='quantidade'>Quantidade</label></td>
-                                        <td><input class="form-control" type='text' id='quantidade' name='quantidade'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='quantidade'>Quantidade</label></td>
+                                    <td><input class="form-control" type='text' id='quantidade' name='quantidade'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='notaFiscal'>Nota Fiscal</label></td>
-                                        <td><input class="form-control" type='text' id='notaFiscal' name='notaFiscal' /></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='notaFiscal'>Nota Fiscal</label></td>
+                                    <td><input class="form-control" type='text' id='notaFiscal' name='notaFiscal' /></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='tipo'>Tipo de Produto</label></td>
-                                        <td>
-                                            <select class="form-control" name="tipo" id="tipo">
-                                                {foreach $tipos as $tipo }
-                                                <option value="{$tipo->getId_tipo()}">{$tipo->getNome_tipo()}</option>
-                                                {/foreach}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='tipo'>Tipo de Produto</label></td>
+                                    <td>
+                                        <select class="form-control" name="tipo" id="tipo">
+                                            {foreach $tipos as $tipo }
+                                            <option value="{$tipo->getId_tipo()}">{$tipo->getNome_tipo()}</option>
+                                            {/foreach}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='loja'>Fornecedor</label></td>
-                                        <td>
-                                            <select class="form-control" id="loja" name="loja">
-                                                {foreach $lojas as $loja }
-                                                <option value="{$loja->getId_loja()}">{$loja->getNome_loja()}</option>
-                                                {/foreach}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='loja'>Fornecedor</label></td>
+                                    <td>
+                                        <select class="form-control" id="loja" name="loja">
+                                            {foreach $lojas as $loja }
+                                            <option value="{$loja->getId_loja()}">{$loja->getNome_loja()}</option>
+                                            {/foreach}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='numero'>Cor</label></td>
-                                        <td>
-                                            <select class="form-control" id='cor' name="cor">
-                                                {foreach $cores as $cor }
-                                                <option value="{$cor->getId_cor()}">{$cor->getNome_cor()}</option>
-                                                {/foreach}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='numero'>Cor</label></td>
+                                    <td>
+                                        <select class="form-control" id='cor' name="cor">
+                                            {foreach $cores as $cor }
+                                            <option value="{$cor->getId_cor()}">{$cor->getNome_cor()}</option>
+                                            {/foreach}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='pedra'>Pedra</label></td>
-                                        <td>
-                                            <select class="form-control" id="pedra" name="pedra">
-                                                {foreach $pedras as $pedra }
-                                                <option value="{$pedra->getId_pedra()}">{$pedra->getNome_pedra()}</option>
-                                                {/foreach}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='pedra'>Pedra</label></td>
+                                    <td>
+                                        <select class="form-control" id="pedra" name="pedra">
+                                            {foreach $pedras as $pedra }
+                                            <option value="{$pedra->getId_pedra()}">{$pedra->getNome_pedra()}</option>
+                                            {/foreach}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='tamanho'>Tamanho</label></td>
-                                        <td><input class="form-control" type='number' id='tamanho' name='tamanho'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='tamanho'>Tamanho</label></td>
+                                    <td><input class="form-control" type='number' id='tamanho' name='tamanho'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='imagem'>Imagem</label></td>
-                                        <td><input class="form-control" type='file' name='imagem'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='imagem'>Imagem</label></td>
+                                    <td><input class="form-control" type='file' name='imagem'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='obs'>Observação sobre o produto</label></td>
-                                        <td><input class="form-control" type='textarea' id='obs' name='obs'/></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><input type="submit" value="Confirmar Operação"/>
-                                    </tr>
-                                </table>
-                            </form>
+                                    <td><label for='obs'>Observação sobre o produto</label></td>
+                                    <td><input class="form-control" type='textarea' id='obs' name='obs'/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="submit" value="Confirmar Operação"/>
+                                        <input type="hidden" name="gerar" value="s" />
+                                </tr>
+                            </table>
+                        </form>
                     </div>
 
                 </section>
