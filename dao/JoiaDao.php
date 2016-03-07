@@ -95,10 +95,22 @@ class JoiaDao {
             return false;
     }
 
+    public static function editaValida($joia) {
+        $conexao = new ConnectBD();
+        $conn = $conexao->connectBD();
+        $edita = $conn->prepare("UPDATE `joias` SET "
+                . "`valida` = :valida "
+                . "WHERE `id_joia` = :id;");
+        $edita->bindValue(":id", $joia->getId_joia(), PDO::PARAM_INT);
+        $edita->bindValue(":valida", $joia->getValida(), PDO::PARAM_INT);
+        $edita->execute();
+    }
+
     public static function DeletaJoia($id_joia) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
         $del = $conn->prepare("DELETE FROM `crisjoias`.`joias` WHERE `joia`.`id_joia` = :id");
+
         $del->bindValue(":id", $id_joia, PDO::PARAM_INT);
         if ($del->execute() == 1)
             return 1;
@@ -125,7 +137,7 @@ class JoiaDao {
                 . "`id_pedra` = :pedra, "
                 . "`valida` = :valida "
                 . "WHERE `id_joia` = :id;");
-        
+
         $edita->bindValue(":id", $joia->getId_joia(), PDO::PARAM_INT);
         $edita->bindValue(":preco_custo", $joia->getPreco_custo(), PDO::PARAM_STR);
         $edita->bindValue(":preco_venda", $joia->getPreco_venda(), PDO::PARAM_STR);

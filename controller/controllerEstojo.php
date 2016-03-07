@@ -24,29 +24,35 @@ $sm->assign("vendedores", $vendedor);
 
 $dados = Transita::listaTransitas();
 
+
+
 $joias = array();
 $tipos = array();
-$texto = " ";
+$texto = "";
 $precoTotal = 0.00;
 
+$txt = explode("*", $dados);
+var_dump($txt);
 
+if ($dados) {
+    foreach ($dados as $dado) {
 
-if($dados[0]){
-foreach ($dados as $dado) {
-    $joia = Joia::listaJoiaQR($dado,1);
-    if ($joia != null) {
-        $precoTotal+=$joia->getPreco_venda();
-        array_push($joias, $joia);
-        $texto = "-------------------------";
-        $texto = $texto . "\nProduto: " . Tipo::listaTipo($joia->getTipo())->getNome_tipo() . "\n";
-        $texto = $texto . "Pedra: " . Pedra::listaPedra($joia->getPedra())->getNome_pedra() . "\n";
-        $texto = $texto . "Cor: " . Cor::listaCor($joia->getCor())->getNome_cor() . "\n";
-        $texto = $texto . "Fornecedor: " . Loja::listaLoja($joia->getLoja())->getNome_loja();
-        array_push($tipos, $texto);
-        $texto = '';
+        $joia = Joia::listaJoiaQR($dado, 1);
+        if ($joia != null) {
+            $precoTotal+=$joia->getPreco_venda();
+            array_push($joias, $joia);
+            $texto = "-------------------------";
+            $texto = $texto . "\nProduto: " . Tipo::listaTipo($joia->getTipo())->getNome_tipo() . "\n";
+            $texto = $texto . "Pedra: " . Pedra::listaPedra($joia->getPedra())->getNome_pedra() . "\n";
+            $texto = $texto . "Cor: " . Cor::listaCor($joia->getCor())->getNome_cor() . "\n";
+            $texto = $texto . "Fornecedor: " . Loja::listaLoja($joia->getLoja())->getNome_loja();
+            array_push($tipos, $texto);
+            $texto = '';
+        }
     }
 }
-}
+
+
 if (!isset($pastaParametro)) {
     $nome = Vendedor::listaVendedor(1);
 } else {

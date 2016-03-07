@@ -11,7 +11,7 @@
         <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
         <script type="text/javascript" src="../view/javascripts/main.js"></script>
         <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
-<script type="text/javascript" src="../view/javascripts/ajax.js"></script>
+        <script type="text/javascript" src="../view/javascripts/ajax.js"></script>
 
     </head>
     <body>
@@ -56,125 +56,135 @@
             <article>
                 <section>
                     <center>
-                        <form action="../controller/fecharEstojo.php" method="post">
-                        <table border='1' width='100%'>
-                            <tr>
-                                <th colspan="2">
-                            <center><h2>Montagem de Estojo</h2></center>
-                            </th>
-                            </tr>
-                            <tr>
+                        
+                            <table border='1' width='100%'>
+                                <tr>
+                                    <th colspan="2">
+                                <center><h2>Montagem de Estojo</h2></center>
+                                </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                <center><label for='vendedor'>Vendedor Associado</label>
+
+
+                                </center>
+                                </td>
                                 <td>
-                            <center><label for='vendedor'>Vendedor Associado</label>
-                                
-                            
-                            </center>
-                            </td>
-                            <td>
-                                
-                                <script>
-                                    function executa(){
-                                        var a = document.getElementById('vendedor').value;
-                                        var eScript = document.createElement("script");
-                                        eScript.setAttribute('src','../controller/listagemPastas.php?cod='+a);
-                                        //alert(a);
-                                    }
-                                </script>
-                                
-                                <select id='vendedor' name='vendedor' onchange="buscarBD(this)">
-                                    {foreach $vendedores as $vendedor}>
-                                        <option value='{$vendedor->getId_vendedor()}'>{$vendedor->getNome_vendedor()}</option>
-                                    {/foreach}
-                                    
-                                </select>
-                            </td>
-                            </tr>
-                            <tr>
-                                <td><center><label for='pastas'>Relação das Pastas do Vendedor</label></center></td>
-                                <td><select id="pastas" name="pastas">
 
-                                    <option></option>
-
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td colspan='1'><h3><center>Listagem dos Produtos</center></h3></td>
-                                <td width="20%">Usar Leitor: 
                                     <script>
-
-                                        var x = setInterval(scanLeitor, 1000);
-
-                                        function scanLeitor() {
-
-                                            var b = document.getElementById("read");
-                                            if (b.value != "") {
-                                                document.getElementById('textoAdicional').value=b;
-                                                document.getElementById('formQRCODE').submit();
-
-                                            }
-
+                                        function executa() {
+                                            var a = document.getElementById('vendedor').value;
+                                            var eScript = document.createElement("script");
+                                            eScript.setAttribute('src', '../controller/listagemPastas.php?cod=' + a);
+                                            //alert(a);
                                         }
                                     </script>
-                                   
-                                        <div id = "results"></div>
 
-                                        
-                                        <input type="text" id="textoAdicional">
+                                    <select id="v1" name="v1">
+                                        {foreach $vendedores as $vendedor}>
+                                        <option value='{$vendedor->getId_vendedor()}'>{$vendedor->getNome_vendedor()}</option>
+                                        {/foreach}
 
+                                    </select>
                                 </td>
-                            </tr>
-                            <tr>
+                                </tr>
+                                <tr>
+                                    <td><center><label for='pastas'>Relação das Pastas do Vendedor</label></center></td>
                                 <td>
-                            <center><textarea id='listagem' name='listagem' rows="20" cols="80" readonly>                               
+                                    
+                                        <select id="pastas" name="pastas">
+
+                                            <option>Escolha o vendedor</option>
+
+                                        </select></td>
+                    
+                        </tr>
+                        <tr>
+                            <td colspan='1'><h3><center>Listagem dos Produtos</center></h3></td>
+                            <td width="20%">Usar Leitor: 
+                                <script>
+
+                                    function usaAux() {
+                                        document.getElementById('auxTroca').value = document.getElementById('pastas').value
+                                    }
+
+                                    var x = setInterval(scanLeitor, 1000);
+
+                                    function scanLeitor() {
+
+                                        var b = document.getElementById("read");
+                                        if (b.value != "") {
+                                            document.getElementById('textoAdicional').value = b.value;
+                                            document.getElementById('formQRCODE').submit();
+
+                                        }
+
+                                    }
+                                </script>
+
+                                <div id = "results"></div>
+
+
+                                <input type="text" id="textoAdicional" name="textoAdicional" >
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <center><textarea id='listagem' name='listagem' rows="20" cols="80" readonly>                               
 {foreach  $tipos as $tipo}{$tipo}
 {/foreach}
-                                </textarea></center>
-                            </td>
-                            <td>
-                                <div class="leitorQR" id="reader"> </div>
-                                
-                            </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    {if $estojo|@count == 0}
-                            <center><h2>Estojo Vazio</h2></center>
-                            {/if}
+                            </textarea></center>
+                        </td>
+                        <td>
+                            <div class="leitorQR" id="reader"> </div>
 
-                            {foreach $estojo as $item}
+                        </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                {if $estojo|@count == 0}
+                        <center><h2>Estojo Vazio</h2></center>
+                        {/if}
 
-                            <img src="../joias/{$item->getImagem()}" width='35px' height="35px">
+                        {foreach $estojo as $item}
 
-                            {/foreach}
+                        <img src="../joias/{$item->getImagem()}" width='35px' height="35px">
 
-
-                            </td>
-                            <td>
+                        {/foreach}
 
 
+                        </td>
+                        <td>
 
 
 
-                            </td>
-                            </tr>
 
 
-                            <tr>
-                                <td><center><h4>Preço Total do Estojo: {$venda}</h4><input type="hidden" id='total' name="total" value="{$venda}" /></center></td>
+                        </td>
+                        </tr>
 
-                                <td colspan="2">
-                                <center><input type="submit" value="Fechar Estojo"></center>
-                                </td>
-                            </tr>
+
+                        <tr>
+                            <td><center><h4>Preço Total do Estojo: {$venda}</h4><input type="hidden" id='total' name="total" value="{$venda}" /></center></td>
+
+                        <td colspan="2">
+                        <center><input type="submit" value="Fechar Estojo"></center>
+                        </td>
+                        </tr>
 
                         </table>
 
-                        </form>
+                        
                         <form id="formQRCODE" method="post" action="../controller/manterEstojoController.php">
-                                            <div id="apaga"><textarea id="read" name ="s" /></textarea></div>
-                                        </form>
+                            <div id="apaga"><textarea id="read" name ="s" /></textarea></div>
+                        </form>
                     </center>   
             </article>
+
+            <input type="hidden" id="auxTroca" name="auxTroca">
+
 
         </div>
 

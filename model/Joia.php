@@ -211,6 +211,10 @@ class Joia {
         return JoiaDao::EditaJoia($joia);
     }
 
+      public static function EditaValida($joia) {
+        return JoiaDao::EditaValida($joia);
+    }
+    
     public static function deletaJoia($joia) {
         return JoiaDao::deletaJoia($joia);
     }

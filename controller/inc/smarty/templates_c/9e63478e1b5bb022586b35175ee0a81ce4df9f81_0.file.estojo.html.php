@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-07 07:00:13
+<?php /* Smarty version 3.1.24, created on 2016-03-07 09:16:23
          compiled from "F:/xampp/htdocs/SCJ/view/estojo.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:84156dd18edd187a7_91677199%%*/
+/*%%SmartyHeaderCode:1841956dd38d7ebc155_64508331%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9e63478e1b5bb022586b35175ee0a81ce4df9f81' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/estojo.html',
-      1 => 1457330411,
+      1 => 1457338582,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '84156dd18edd187a7_91677199',
+  'nocache_hash' => '1841956dd38d7ebc155_64508331',
   'variables' => 
   array (
     'nome' => 0,
@@ -27,13 +27,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56dd18edd57f59_11463701',
+  'unifunc' => 'content_56dd38d7efe9a9_78783173',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56dd18edd57f59_11463701')) {
-function content_56dd18edd57f59_11463701 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56dd38d7efe9a9_78783173')) {
+function content_56dd38d7efe9a9_78783173 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '84156dd18edd187a7_91677199';
+$_smarty_tpl->properties['nocache_hash'] = '1841956dd38d7ebc155_64508331';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -56,7 +56,7 @@ $_smarty_tpl->properties['nocache_hash'] = '84156dd18edd187a7_91677199';
         <?php echo '<script'; ?>
  type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  type="text/javascript" src="../view/javascripts/ajax.js"><?php echo '</script'; ?>
 >
 
@@ -104,35 +104,35 @@ $_smarty_tpl->properties['nocache_hash'] = '84156dd18edd187a7_91677199';
             <article>
                 <section>
                     <center>
-                        <form action="../controller/fecharEstojo.php" method="post">
-                        <table border='1' width='100%'>
-                            <tr>
-                                <th colspan="2">
-                            <center><h2>Montagem de Estojo</h2></center>
-                            </th>
-                            </tr>
-                            <tr>
+                        
+                            <table border='1' width='100%'>
+                                <tr>
+                                    <th colspan="2">
+                                <center><h2>Montagem de Estojo</h2></center>
+                                </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                <center><label for='vendedor'>Vendedor Associado</label>
+
+
+                                </center>
+                                </td>
                                 <td>
-                            <center><label for='vendedor'>Vendedor Associado</label>
-                                
-                            
-                            </center>
-                            </td>
-                            <td>
-                                
-                                <?php echo '<script'; ?>
+
+                                    <?php echo '<script'; ?>
 >
-                                    function executa(){
-                                        var a = document.getElementById('vendedor').value;
-                                        var eScript = document.createElement("script");
-                                        eScript.setAttribute('src','../controller/listagemPastas.php?cod='+a);
-                                        //alert(a);
-                                    }
-                                <?php echo '</script'; ?>
+                                        function executa() {
+                                            var a = document.getElementById('vendedor').value;
+                                            var eScript = document.createElement("script");
+                                            eScript.setAttribute('src', '../controller/listagemPastas.php?cod=' + a);
+                                            //alert(a);
+                                        }
+                                    <?php echo '</script'; ?>
 >
-                                
-                                <select id='vendedor' name='vendedor' onchange="buscarBD(this)">
-                                    <?php
+
+                                    <select id="v1" name="v1">
+                                        <?php
 $_from = $_smarty_tpl->tpl_vars['vendedores']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -146,53 +146,60 @@ $foreach_vendedor_Sav = $_smarty_tpl->tpl_vars['vendedor'];
                                         <option value='<?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getId_vendedor();?>
 '><?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getNome_vendedor();?>
 </option>
-                                    <?php
+                                        <?php
 $_smarty_tpl->tpl_vars['vendedor'] = $foreach_vendedor_Sav;
 }
 ?>
+
+                                    </select>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td><center><label for='pastas'>Relação das Pastas do Vendedor</label></center></td>
+                                <td>
                                     
-                                </select>
-                            </td>
-                            </tr>
-                            <tr>
-                                <td><center><label for='pastas'>Relação das Pastas do Vendedor</label></center></td>
-                                <td><select id="pastas" name="pastas">
+                                        <select id="pastas" name="pastas">
 
-                                    <option></option>
+                                            <option>Escolha o vendedor</option>
 
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td colspan='1'><h3><center>Listagem dos Produtos</center></h3></td>
-                                <td width="20%">Usar Leitor: 
-                                    <?php echo '<script'; ?>
+                                        </select></td>
+                    
+                        </tr>
+                        <tr>
+                            <td colspan='1'><h3><center>Listagem dos Produtos</center></h3></td>
+                            <td width="20%">Usar Leitor: 
+                                <?php echo '<script'; ?>
 >
 
-                                        var x = setInterval(scanLeitor, 1000);
+                                    function usaAux() {
+                                        document.getElementById('auxTroca').value = document.getElementById('pastas').value
+                                    }
 
-                                        function scanLeitor() {
+                                    var x = setInterval(scanLeitor, 1000);
 
-                                            var b = document.getElementById("read");
-                                            if (b.value != "") {
-                                                document.getElementById('textoAdicional').value=b;
-                                                document.getElementById('formQRCODE').submit();
+                                    function scanLeitor() {
 
-                                            }
+                                        var b = document.getElementById("read");
+                                        if (b.value != "") {
+                                            document.getElementById('textoAdicional').value = b.value;
+                                            document.getElementById('formQRCODE').submit();
 
                                         }
-                                    <?php echo '</script'; ?>
+
+                                    }
+                                <?php echo '</script'; ?>
 >
-                                   
-                                        <div id = "results"></div>
 
-                                        
-                                        <input type="text" id="textoAdicional">
+                                <div id = "results"></div>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                            <center><textarea id='listagem' name='listagem' rows="20" cols="80" readonly>                               
+
+                                <input type="text" id="textoAdicional" name="textoAdicional" >
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <center><textarea id='listagem' name='listagem' rows="20" cols="80" readonly>                               
 <?php
 $_from = $_smarty_tpl->tpl_vars['tipos']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -209,20 +216,20 @@ echo $_smarty_tpl->tpl_vars['tipo']->value;?>
 $_smarty_tpl->tpl_vars['tipo'] = $foreach_tipo_Sav;
 }
 ?>
-                                </textarea></center>
-                            </td>
-                            <td>
-                                <div class="leitorQR" id="reader"> </div>
-                                
-                            </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <?php if (count($_smarty_tpl->tpl_vars['estojo']->value) == 0) {?>
-                            <center><h2>Estojo Vazio</h2></center>
-                            <?php }?>
+                            </textarea></center>
+                        </td>
+                        <td>
+                            <div class="leitorQR" id="reader"> </div>
 
-                            <?php
+                        </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <?php if (count($_smarty_tpl->tpl_vars['estojo']->value) == 0) {?>
+                        <center><h2>Estojo Vazio</h2></center>
+                        <?php }?>
+
+                        <?php
 $_from = $_smarty_tpl->tpl_vars['estojo']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -234,44 +241,47 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 $foreach_item_Sav = $_smarty_tpl->tpl_vars['item'];
 ?>
 
-                            <img src="../joias/<?php echo $_smarty_tpl->tpl_vars['item']->value->getImagem();?>
+                        <img src="../joias/<?php echo $_smarty_tpl->tpl_vars['item']->value->getImagem();?>
 " width='35px' height="35px">
 
-                            <?php
+                        <?php
 $_smarty_tpl->tpl_vars['item'] = $foreach_item_Sav;
 }
 ?>
 
 
-                            </td>
-                            <td>
+                        </td>
+                        <td>
 
 
 
 
 
-                            </td>
-                            </tr>
+                        </td>
+                        </tr>
 
 
-                            <tr>
-                                <td><center><h4>Preço Total do Estojo: <?php echo $_smarty_tpl->tpl_vars['venda']->value;?>
+                        <tr>
+                            <td><center><h4>Preço Total do Estojo: <?php echo $_smarty_tpl->tpl_vars['venda']->value;?>
 </h4><input type="hidden" id='total' name="total" value="<?php echo $_smarty_tpl->tpl_vars['venda']->value;?>
 " /></center></td>
 
-                                <td colspan="2">
-                                <center><input type="submit" value="Fechar Estojo"></center>
-                                </td>
-                            </tr>
+                        <td colspan="2">
+                        <center><input type="submit" value="Fechar Estojo"></center>
+                        </td>
+                        </tr>
 
                         </table>
 
-                        </form>
+                        
                         <form id="formQRCODE" method="post" action="../controller/manterEstojoController.php">
-                                            <div id="apaga"><textarea id="read" name ="s" /></textarea></div>
-                                        </form>
+                            <div id="apaga"><textarea id="read" name ="s" /></textarea></div>
+                        </form>
                     </center>   
             </article>
+
+            <input type="hidden" id="auxTroca" name="auxTroca">
+
 
         </div>
 

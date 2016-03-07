@@ -5,18 +5,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function obtemPastas(){
+include_once '../model/Vendedor.php';
+
+$id = $_GET['id'];
+
+$nome = Vendedor::listaVendedor($id);
+
 $path = "../vendedores/" . $nome->getPasta();
 $diretorio = dir($path);
 $i = 1;
 $link = array();
+
 while ($arquivo = $diretorio->read()) {
 
     if ($i > 2) {
-        array_push($link, $arquivo);
+        if($i==3){
+        echo "<option value=".$arquivo." class = \"pastas\" selected>".$arquivo."</option>";
+        }else{
+            echo "<option value=".$arquivo." class = \"pastas\">".$arquivo."</option>";
+        }
     }
     $i++;
 }
 
-return $link;
-}
+

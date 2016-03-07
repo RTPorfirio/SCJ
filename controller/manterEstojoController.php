@@ -17,11 +17,12 @@ include_once '../model/Joia.php';
 
 
 
-   //    exit();
 
-//    Transita::insereTransita($cod);
+    Transita::insereTransita($cod);
     $joia = Joia::listaJoiaQR($cod,0);
+    echo $joia->getValida($joia);
     $joia->setValida(0);
-    $k = Joia::EditaJoia($joia); // <<-- erro aqui
+    //Joia::EditaValida($joia); // <<-- erro aqui
+
 
     header("location:../controller/controllerEstojo.php");
