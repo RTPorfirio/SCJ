@@ -8,9 +8,7 @@
 
 include_once '../configs/Upload.php';
 include_once '../model/Joia.php';
-        const _FOLDER_DIR = "../tempQrCode/";
-
-
+include_once '../configs/geraEtiqueta.php';
 
 
 
@@ -19,7 +17,7 @@ $upLoad = new Upload($_FILES["imagem"]);
 $imagem = $upLoad->getNome();
 
 if (isset($_POST['gerar'])) {
-    require("../view/phpqrcode/qrlib.php");
+
     $img = $_FILES['imagem'];
     $pCusto = addslashes(trim($_POST['pcusto']));
     $pVenda = addslashes(trim($_POST['pvenda']));
@@ -56,21 +54,15 @@ for ($i = 1; $i <= $qnt; $i++) {
 
     $codBase = $codBase . $j;
     $qrCode = $codBase . "R$" . $pVenda;
-    $joia = new Joia($pCusto, $pVenda, $consig, $notaFiscal, $obs, $codBase, $qrCode, $tamanho, $imagem);
-    $joia->insereJoia($joia);
-
-    // --- INICIO ---
-    // adiciona o qrCode gerado na pasta const _FOLDER_DIR = "../tempQrCode/";
-    $tempDir = \_FOLDER_DIR;
-    $codeContents = $qrCode;
-    $fileName = "$j.png";
-    $pngAbsoluteFilePath = $tempDir . $fileName;
-    $urlRelativeFilePath = \_FOLDER_DIR . $fileName;
-    QRcode::png($codeContents, $pngAbsoluteFilePath, 2, 1.66, 1);
-    $j++;
-
+    $joia = new Joia($pCusto, $pVenda, $consig, $notaFiscal, $obs, $codBase, $qrCode, $tamanho, $imagem,$tipo,$fornecedor,$cor,$pedra,1);
+    //$joia->insereJoia($joia);   
     $codBase = $codBaseOriginal;
     $qrCode = $qrCodeOriginal;
+    
+  
+    geraEtiqueta($qrCode, $codBase, $pVenda);
+
+        
 }
 
 $upLoad->makeUpload();

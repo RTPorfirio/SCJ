@@ -70,7 +70,7 @@ class JoiaDao {
     public static function InsereJoia($joia) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $insere = $conn->prepare("INSERT INTO `joias` (`preco_custo`, `preco_venda`, `consignado`, `nota_fiscal`, `obs`, `cod_base`, `qr_code`, `tamanho`, `imagem`,`id_tipo`,`id_loja`,`id_cor`,`id_pedra`) VALUES (:preco_custo, :preco_venda, :consignado,  :nota_fiscal, :obs, :cod_base, :qr_code,:tamanho, :imagem,:tipo,:loja,:cor,:pedra)");
+        $insere = $conn->prepare("INSERT INTO `joias` (`preco_custo`, `preco_venda`, `consignado`, `nota_fiscal`, `obs`, `cod_base`, `qr_code`, `tamanho`, `imagem`,`id_tipo`,`id_loja`,`id_cor`,`id_pedra`,`valida`) VALUES (:preco_custo, :preco_venda, :consignado,  :nota_fiscal, :obs, :cod_base, :qr_code,:tamanho, :imagem,:tipo,:loja,:cor,:pedra,:valida)");
         $insere->bindValue(":preco_custo", $joia->getPreco_custo(), PDO::PARAM_STR);
         $insere->bindValue(":preco_venda", $joia->getPreco_venda(), PDO::PARAM_STR);
         $insere->bindValue(":consignado", $joia->getConsignado(), PDO::PARAM_STR);
@@ -87,7 +87,8 @@ class JoiaDao {
         $insere->bindValue(":tipo", $joia->getTipo(), PDO::PARAM_STR);
         $insere->bindValue(":loja", $joia->getLoja(), PDO::PARAM_STR);
         $insere->bindValue(":cor", $joia->getCor(), PDO::PARAM_INT);
-        $insere->bindValue(":pedra", $joia->Pedra(), PDO::PARAM_STR);
+        $insere->bindValue(":pedra", $joia->getPedra(), PDO::PARAM_STR);
+        $insere->bindValue(":valida", 1, PDO::PARAM_STR);
         if ($insere->execute() == 1)
             return true;
         else

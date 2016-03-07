@@ -181,6 +181,8 @@ class Joia {
         $this->cor = $cor;
     }
 
+    
+    
     function setPedra($pedra) {
         $this->pedra = $pedra;
     }

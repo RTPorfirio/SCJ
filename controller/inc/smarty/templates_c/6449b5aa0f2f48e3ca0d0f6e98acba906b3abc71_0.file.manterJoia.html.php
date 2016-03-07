@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-04 07:13:12
+<?php /* Smarty version 3.1.24, created on 2016-03-07 01:19:05
          compiled from "F:/xampp/htdocs/SCJ/view/manterJoia.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:560856d92778a79759_91231289%%*/
+/*%%SmartyHeaderCode:3250056dcc8f9221509_89932204%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6449b5aa0f2f48e3ca0d0f6e98acba906b3abc71' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterJoia.html',
-      1 => 1457009600,
+      1 => 1457309857,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '560856d92778a79759_91231289',
+  'nocache_hash' => '3250056dcc8f9221509_89932204',
   'variables' => 
   array (
     'nome' => 0,
@@ -28,13 +28,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56d92778aaefc5_82192238',
+  'unifunc' => 'content_56dcc8f926c082_18740510',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56d92778aaefc5_82192238')) {
-function content_56d92778aaefc5_82192238 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56dcc8f926c082_18740510')) {
+function content_56dcc8f926c082_18740510 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '560856d92778a79759_91231289';
+$_smarty_tpl->properties['nocache_hash'] = '3250056dcc8f9221509_89932204';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -105,42 +105,42 @@ $_smarty_tpl->properties['nocache_hash'] = '560856d92778a79759_91231289';
                     <div id="controladores">
                         <br/>
 
-                            <h1>Registro de nova Joia</h1>
-                            <form enctype="multipart/form-data" action="../controller/manterJoia.php?opc=incluir" method="post" >
-                                <table class="table">
-                                    <tr>
+                        <h1>Registro de nova Joia</h1>
+                        <form enctype="multipart/form-data" action="../controller/manterJoia.php?opc=incluir" method="post" >
+                            <table class="table">
+                                <tr>
 
-                                        <td><label for='pcusto' >Preço de Custo</label></td>
-                                        <td><input class="form-control" type='text' id='pcusto' name='pcusto'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='pcusto' >Preço de Custo</label></td>
+                                    <td><input class="form-control" type='text' id='pcusto' name='pcusto'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='pvenda'>Preço de Venda</label></td>
-                                        <td><input class="form-control" type='text' id='pvenda' name='pvenda'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='pvenda'>Preço de Venda</label></td>
+                                    <td><input class="form-control" type='text' id='pvenda' name='pvenda'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='consignado'>Consignado</label></td>
-                                        <td>
-                                            Sim <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="1"> | Não <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="0">
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='consignado'>Consignado</label></td>
+                                    <td>
+                                        Sim <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="1"> | Não <input class="radio-inline" type='radio' name ='consignado' id='consignado' value="0">
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='quantidade'>Quantidade</label></td>
-                                        <td><input class="form-control" type='text' id='quantidade' name='quantidade'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='quantidade'>Quantidade</label></td>
+                                    <td><input class="form-control" type='text' id='quantidade' name='quantidade'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='notaFiscal'>Nota Fiscal</label></td>
-                                        <td><input class="form-control" type='text' id='notaFiscal' name='notaFiscal' /></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='notaFiscal'>Nota Fiscal</label></td>
+                                    <td><input class="form-control" type='text' id='notaFiscal' name='notaFiscal' /></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='tipo'>Tipo de Produto</label></td>
-                                        <td>
-                                            <select class="form-control" name="tipo" id="tipo">
-                                                <?php
+                                    <td><label for='tipo'>Tipo de Produto</label></td>
+                                    <td>
+                                        <select class="form-control" name="tipo" id="tipo">
+                                            <?php
 $_from = $_smarty_tpl->tpl_vars['tipos']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -151,22 +151,22 @@ foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
 $_smarty_tpl->tpl_vars['tipo']->_loop = true;
 $foreach_tipo_Sav = $_smarty_tpl->tpl_vars['tipo'];
 ?>
-                                                <option value="<?php echo $_smarty_tpl->tpl_vars['tipo']->value->getId_tipo();?>
+                                            <option value="<?php echo $_smarty_tpl->tpl_vars['tipo']->value->getId_tipo();?>
 "><?php echo $_smarty_tpl->tpl_vars['tipo']->value->getNome_tipo();?>
 </option>
-                                                <?php
+                                            <?php
 $_smarty_tpl->tpl_vars['tipo'] = $foreach_tipo_Sav;
 }
 ?>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='loja'>Fornecedor</label></td>
-                                        <td>
-                                            <select class="form-control" id="loja" name="loja">
-                                                <?php
+                                    <td><label for='loja'>Fornecedor</label></td>
+                                    <td>
+                                        <select class="form-control" id="loja" name="loja">
+                                            <?php
 $_from = $_smarty_tpl->tpl_vars['lojas']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -177,22 +177,22 @@ foreach ($_from as $_smarty_tpl->tpl_vars['loja']->value) {
 $_smarty_tpl->tpl_vars['loja']->_loop = true;
 $foreach_loja_Sav = $_smarty_tpl->tpl_vars['loja'];
 ?>
-                                                <option value="<?php echo $_smarty_tpl->tpl_vars['loja']->value->getId_loja();?>
+                                            <option value="<?php echo $_smarty_tpl->tpl_vars['loja']->value->getId_loja();?>
 "><?php echo $_smarty_tpl->tpl_vars['loja']->value->getNome_loja();?>
 </option>
-                                                <?php
+                                            <?php
 $_smarty_tpl->tpl_vars['loja'] = $foreach_loja_Sav;
 }
 ?>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='numero'>Cor</label></td>
-                                        <td>
-                                            <select class="form-control" id='cor' name="cor">
-                                                <?php
+                                    <td><label for='numero'>Cor</label></td>
+                                    <td>
+                                        <select class="form-control" id='cor' name="cor">
+                                            <?php
 $_from = $_smarty_tpl->tpl_vars['cores']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -203,22 +203,22 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cor']->value) {
 $_smarty_tpl->tpl_vars['cor']->_loop = true;
 $foreach_cor_Sav = $_smarty_tpl->tpl_vars['cor'];
 ?>
-                                                <option value="<?php echo $_smarty_tpl->tpl_vars['cor']->value->getId_cor();?>
+                                            <option value="<?php echo $_smarty_tpl->tpl_vars['cor']->value->getId_cor();?>
 "><?php echo $_smarty_tpl->tpl_vars['cor']->value->getNome_cor();?>
 </option>
-                                                <?php
+                                            <?php
 $_smarty_tpl->tpl_vars['cor'] = $foreach_cor_Sav;
 }
 ?>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='pedra'>Pedra</label></td>
-                                        <td>
-                                            <select class="form-control" id="pedra" name="pedra">
-                                                <?php
+                                    <td><label for='pedra'>Pedra</label></td>
+                                    <td>
+                                        <select class="form-control" id="pedra" name="pedra">
+                                            <?php
 $_from = $_smarty_tpl->tpl_vars['pedras']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -229,36 +229,37 @@ foreach ($_from as $_smarty_tpl->tpl_vars['pedra']->value) {
 $_smarty_tpl->tpl_vars['pedra']->_loop = true;
 $foreach_pedra_Sav = $_smarty_tpl->tpl_vars['pedra'];
 ?>
-                                                <option value="<?php echo $_smarty_tpl->tpl_vars['pedra']->value->getId_pedra();?>
+                                            <option value="<?php echo $_smarty_tpl->tpl_vars['pedra']->value->getId_pedra();?>
 "><?php echo $_smarty_tpl->tpl_vars['pedra']->value->getNome_pedra();?>
 </option>
-                                                <?php
+                                            <?php
 $_smarty_tpl->tpl_vars['pedra'] = $foreach_pedra_Sav;
 }
 ?>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='tamanho'>Tamanho</label></td>
-                                        <td><input class="form-control" type='number' id='tamanho' name='tamanho'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='tamanho'>Tamanho</label></td>
+                                    <td><input class="form-control" type='number' id='tamanho' name='tamanho'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='imagem'>Imagem</label></td>
-                                        <td><input class="form-control" type='file' name='imagem'/></td>
-                                    </tr>
-                                    <tr>
+                                    <td><label for='imagem'>Imagem</label></td>
+                                    <td><input class="form-control" type='file' name='imagem'/></td>
+                                </tr>
+                                <tr>
 
-                                        <td><label for='obs'>Observação sobre o produto</label></td>
-                                        <td><input class="form-control" type='textarea' id='obs' name='obs'/></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><input type="submit" value="Confirmar Operação"/>
-                                    </tr>
-                                </table>
-                            </form>
+                                    <td><label for='obs'>Observação sobre o produto</label></td>
+                                    <td><input class="form-control" type='textarea' id='obs' name='obs'/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="submit" value="Confirmar Operação"/>
+                                        <input type="hidden" name="gerar" value="s" />
+                                </tr>
+                            </table>
+                        </form>
                     </div>
 
                 </section>
