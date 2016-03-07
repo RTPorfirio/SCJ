@@ -10,30 +10,44 @@ include_once '../model/Transita.php';
 class TransitaDao {
 
     public static function ListaTransitas() {
-
-        if (@!$arquivo = fopen('../estojo.txt', 'r')) {
-            @$arquivo = fopen('../estojo.txt', 'w+'); // responssãvel pela leitura do arquivo (Arquivo, Tamanho)
-        }
-// imprime linha por linha ate detectar o final
+        $conexao = new ConnectBD();
+        $conn = $conexao->connectBD();
+        $busca = $conn->prepare("SELECT * FROM `transita`");
+        $busca->execute();
+        $sm = $busca->fetchAll(PDO::FETCH_ASSOC);
         $array = array();
-
-        while (!feof($arquivo)) {
-
-
-            array_push($array, $arquivo);
+        foreach ($sm as $registros) {
+            $transita = self::CreateTransita($registros);
+            array_push($array, $transita);
         }
-        fclose($arquivo);
+
         return $array;
     }
 
-    public static function InsereTransita($transita) {
-        $fd = fopen('../estojo.txt', 'a'); // Abre o arquivo para Gravação, e se ele não existir será criado
-        fwrite($fd, $transita . "*"); // Abre o Arquivo para leitura
-        fclose($fd); // Fecha a variável
+    public static function insereTransita($transita) {
+        $conexao = new ConnectBD();
+        $conn = $conexao->connectBD();
+        
+        $insere = $conn->prepare("INSERT INTO `crisjoias`.`transita` (`nome`) VALUES (:nome)");
+        $insere->bindValue(":nome", $transita, PDO::PARAM_STR);
+        if ($insere->execute() == 1)
+            return true;
+        else
+            return false;
     }
 
     public static function DeletaTransita() {
-        unlink('../estojo.txt');
+        $conexao = new ConnectBD();
+        $conn = $conexao->connectBD();
+        $deleta = $conn->prepare("truncate transita");
+        $deleta->execute();
+    }
+
+    private function CreateTransita($sm) {
+        $t = new Transita(
+                $sm['id_transita']
+                , $sm['nome']);
+        return $t;
     }
 
 }

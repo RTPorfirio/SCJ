@@ -15,14 +15,14 @@ include_once '../model/Joia.php';
 
     $cod = $_POST['s'];
 
-
+        $teste = $_POST['read'];
 
 
     Transita::insereTransita($cod);
     $joia = Joia::listaJoiaQR($cod,0);
-    echo $joia->getValida($joia);
+
     $joia->setValida(0);
-    //Joia::EditaValida($joia); // <<-- erro aqui
+    Joia::EditaValida($joia);
 
 
     header("location:../controller/controllerEstojo.php");

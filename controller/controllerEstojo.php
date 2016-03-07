@@ -31,22 +31,22 @@ $tipos = array();
 $texto = "";
 $precoTotal = 0.00;
 
-$txt = explode("*", $dados);
-var_dump($txt);
 
 if ($dados) {
     foreach ($dados as $dado) {
 
-        $joia = Joia::listaJoiaQR($dado, 1);
+        
+        $joia = Joia::listaJoiaQR($dado->getNome_transita(), 1);
+        array_push($joias, $joia);
         if ($joia != null) {
             $precoTotal+=$joia->getPreco_venda();
-            array_push($joias, $joia);
             $texto = "-------------------------";
             $texto = $texto . "\nProduto: " . Tipo::listaTipo($joia->getTipo())->getNome_tipo() . "\n";
             $texto = $texto . "Pedra: " . Pedra::listaPedra($joia->getPedra())->getNome_pedra() . "\n";
             $texto = $texto . "Cor: " . Cor::listaCor($joia->getCor())->getNome_cor() . "\n";
             $texto = $texto . "Fornecedor: " . Loja::listaLoja($joia->getLoja())->getNome_loja();
             array_push($tipos, $texto);
+
             $texto = '';
         }
     }
@@ -81,4 +81,4 @@ $sm->assign("arquivos", $link);
 $sm->assign('venda', $precoTotal);
 $sm->assign('tipos', $tipos);
 $sm->assign('estojo', $joias);
-$sm->display("../view/estojo.html");
+$sm->display("../view/estojo.php");

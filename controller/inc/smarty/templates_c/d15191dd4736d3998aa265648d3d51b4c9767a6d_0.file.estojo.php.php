@@ -1,3 +1,40 @@
+<?php /* Smarty version 3.1.24, created on 2016-03-07 14:32:42
+         compiled from "F:/xampp/htdocs/SCJ/view/estojo.php" */ ?>
+<?php
+/*%%SmartyHeaderCode:2760356dd82fa4342e6_63455800%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'd15191dd4736d3998aa265648d3d51b4c9767a6d' => 
+    array (
+      0 => 'F:/xampp/htdocs/SCJ/view/estojo.php',
+      1 => 1457357560,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2760356dd82fa4342e6_63455800',
+  'variables' => 
+  array (
+    'nome' => 0,
+    'vendedores' => 0,
+    'vendedor' => 0,
+    'tipos' => 0,
+    'tipo' => 0,
+    'estojo' => 0,
+    'item' => 0,
+    'venda' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => '3.1.24',
+  'unifunc' => 'content_56dd82fa4b1cf5_80120254',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_56dd82fa4b1cf5_80120254')) {
+function content_56dd82fa4b1cf5_80120254 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '2760356dd82fa4342e6_63455800';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -7,11 +44,21 @@
         <link rel="stylesheet" href="../view/css/bootstrap.css">
         <link rel="stylesheet" href="../view/css/style.css">
 
-        <script type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
-        <script type="text/javascript" src="../view/javascripts/main.js"></script>
-        <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
-        <script type="text/javascript" src="../view/javascripts/ajax.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/jquery-1.9.1.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/main.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/ajax.js"><?php echo '</script'; ?>
+>
 
     </head>
     <body>
@@ -20,7 +67,8 @@
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo {$nome}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
+                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
@@ -72,19 +120,36 @@
                             </td>
                             <td>
 
-                                <script>
+                                <?php echo '<script'; ?>
+>
                                     function executa() {
                                         var a = document.getElementById('vendedor').value;
                                         var eScript = document.createElement("script");
                                         eScript.setAttribute('src', '../controller/listagemPastas.php?cod=' + a);
                                         //alert(a);
                                     }
-                                </script>
+                                <?php echo '</script'; ?>
+>
 
                                 <select id="v1" name="v1">
-                                    {foreach $vendedores as $vendedor}>
-                                    <option value='{$vendedor->getId_vendedor()}'>{$vendedor->getNome_vendedor()}</option>
-                                    {/foreach}
+                                    <?php
+$_from = $_smarty_tpl->tpl_vars['vendedores']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['vendedor'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['vendedor']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['vendedor']->value) {
+$_smarty_tpl->tpl_vars['vendedor']->_loop = true;
+$foreach_vendedor_Sav = $_smarty_tpl->tpl_vars['vendedor'];
+?>>
+                                    <option value='<?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getId_vendedor();?>
+'><?php echo $_smarty_tpl->tpl_vars['vendedor']->value->getNome_vendedor();?>
+</option>
+                                    <?php
+$_smarty_tpl->tpl_vars['vendedor'] = $foreach_vendedor_Sav;
+}
+?>
 
                                 </select>
                             </td>
@@ -103,7 +168,8 @@
                             <tr>
                                 <td colspan='1'><h3><center>Listagem dos Produtos</center></h3></td>
                                 <td width="20%">Usar Leitor: 
-                                    <script>
+                                    <?php echo '<script'; ?>
+>
 
                                         function usaAux() {
                                             document.getElementById('auxTroca').value = document.getElementById('pastas').value
@@ -121,7 +187,8 @@
                                             }
 
                                         }
-                                    </script>
+                                    <?php echo '</script'; ?>
+>
 
                                     <div id = "results"></div>
 
@@ -133,8 +200,22 @@
                             <tr>
                                 <td>
                             <center><textarea id='listagem' name='listagem' rows="20" cols="80" readonly>                               
-{foreach  $tipos as $tipo}{$tipo}
-{/foreach}
+<?php
+$_from = $_smarty_tpl->tpl_vars['tipos']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['tipo'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['tipo']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
+$_smarty_tpl->tpl_vars['tipo']->_loop = true;
+$foreach_tipo_Sav = $_smarty_tpl->tpl_vars['tipo'];
+echo $_smarty_tpl->tpl_vars['tipo']->value;?>
+
+<?php
+$_smarty_tpl->tpl_vars['tipo'] = $foreach_tipo_Sav;
+}
+?>
                                 </textarea></center>
                             </td>
                             <td>
@@ -156,21 +237,40 @@
                             <tr>
                                 <td colspan="2">
     
-                                                                   {foreach $estojo  as $item}
+                                                                   <?php
+$_from = $_smarty_tpl->tpl_vars['estojo']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['item'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['item']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+$_smarty_tpl->tpl_vars['item']->_loop = true;
+$foreach_item_Sav = $_smarty_tpl->tpl_vars['item'];
+?>
 
-                                    <img src="../joias/{$item->getImagem()}" width='35px' height="35px" />
+                                    <img src="../joias/<?php echo $_smarty_tpl->tpl_vars['item']->value->getImagem();?>
+" width='35px' height="35px" />
 
-                                    {/foreach}
+                                    <?php
+$_smarty_tpl->tpl_vars['item'] = $foreach_item_Sav;
+}
+?>
                                 </td>
                             </tr>
                             <tr>
-                                <td><center><h4>Preço Total do Estojo: {$venda}</h4><input type="hidden" id='total' name="total" value="{$venda}" /></center></td>
+                                <td><center><h4>Preço Total do Estojo: <?php echo $_smarty_tpl->tpl_vars['venda']->value;?>
+</h4><input type="hidden" id='total' name="total" value="<?php echo $_smarty_tpl->tpl_vars['venda']->value;?>
+" /></center></td>
 
                             <td colspan="2">
                             <center><input type="submit" value="Fechar Estojo"></center>
                             </td>
                             </tr>
-                         <input type="hidden" id="pecas" name="pecas" value="{$estojo}">
+                            
+
+                            
+                            
                         </table>
 </form>
 
@@ -186,4 +286,6 @@
         </div>
 
     </body>
-</html>
+</html><?php }
+}
+?>

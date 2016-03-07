@@ -43,17 +43,11 @@ class JoiaDao {
     }
 
     public static function listaJoiaQR($qrCode, $teste) {
+
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $q = $qrCode;
-        if ($teste) {
-            $q = substr($qrCode, 0, strlen($qrCode) - 1);
-        }
-        $busca = $conn->prepare("SELECT * FROM `joias` WHERE `qr_code` = :qr");
-        $busca->bindValue(":qr", "111112R$55.00", PDO::PARAM_STR);
-        $busca->execute();
+        $busca = $conn->query("SELECT * FROM `joias` WHERE `qr_code` = '$qrCode'");
         $sm = $busca->fetch(PDO::FETCH_ASSOC);
-
         $joia = self::CreateJoia($sm);
         return $joia;
     }
@@ -80,10 +74,6 @@ class JoiaDao {
         $insere->bindValue(":qr_code", $joia->getQr_code(), PDO::PARAM_STR);
         $insere->bindValue(":tamanho", $joia->getTamanho(), PDO::PARAM_INT);
         $insere->bindValue(":imagem", $joia->getImagem(), PDO::PARAM_STR);
-        $insere->bindValue(":cod_base", $joia->getcodBase(), PDO::PARAM_STR);
-        $insere->bindValue(":qr_code", $joia->getQr_code(), PDO::PARAM_STR);
-        $insere->bindValue(":tamanho", $joia->getTamanho(), PDO::PARAM_INT);
-        $insere->bindValue(":imagem", $joia->getImagem(), PDO::PARAM_STR);
         $insere->bindValue(":tipo", $joia->getTipo(), PDO::PARAM_STR);
         $insere->bindValue(":loja", $joia->getLoja(), PDO::PARAM_STR);
         $insere->bindValue(":cor", $joia->getCor(), PDO::PARAM_INT);
@@ -101,6 +91,7 @@ class JoiaDao {
         $edita = $conn->prepare("UPDATE `joias` SET "
                 . "`valida` = :valida "
                 . "WHERE `id_joia` = :id;");
+
         $edita->bindValue(":id", $joia->getId_joia(), PDO::PARAM_INT);
         $edita->bindValue(":valida", $joia->getValida(), PDO::PARAM_INT);
         $edita->execute();
@@ -109,7 +100,7 @@ class JoiaDao {
     public static function DeletaJoia($id_joia) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $del = $conn->prepare("DELETE FROM `crisjoias`.`joias` WHERE `joia`.`id_joia` = :id");
+        $del = $conn->prepare("DELETE FROM `joias` WHERE `joias`.`id_joia` = :id");
 
         $del->bindValue(":id", $id_joia, PDO::PARAM_INT);
         if ($del->execute() == 1)

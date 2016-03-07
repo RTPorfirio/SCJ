@@ -16,16 +16,31 @@ include '../dao/TransitaDao.php';
 class Transita {
 
     private $nome_transita;
-    function __construct($nome_transita) {
-        $this->nome_transita = $nome_transita;
+    private $id_transita;
+
+    function __construct($nome_transita, $id_transita) {
+        if (func_num_args() == 2) {
+            $this->nome_transita = func_get_arg(1);
+            $this->id_transita = func_get_arg(0);
+        } else {
+            $this->nome_transita = func_get_arg(0);
+        }
     }
 
-        function getNome() {
+    function getNome_transita() {
         return $this->nome_transita;
+    }
+
+    function getId_transita() {
+        return $this->id_transita;
     }
 
     function setNome_transita($nome_transita) {
         $this->nome_transita = $nome_transita;
+    }
+
+    function setId_transita($id_transita) {
+        $this->id_transita = $id_transita;
     }
 
     public static function listaTransitas() {
