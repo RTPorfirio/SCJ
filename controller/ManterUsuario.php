@@ -33,13 +33,15 @@ if ($opc != "Remover") {
 if ($opc == "Editar") {
     $cod = addslashes(trim($_GET['cod']));
     $usuario = Usuario::listaUsuario($cod);
-    setaDados($usuario, $nomeUsuario, $senha, $login);
+        $usuario->setNome_usuario($nomeUsuario);
+    $usuario->setLogin($login);
+    $usuario->setSenha($senha);
     Usuario::editaUsuario($usuario);
     header("location:../controller/controllerUsuario.php");
 } else {
     if ($opc == "Incluir") {
-        $usuario = new Usuario();
-        setaDados($usuario, $nomeUsuario, $senha, $login);
+        $usuario = new Usuario($nomeUsuario, $login, $senha);
+
         Usuario::lnsereUsuario($usuario);
         header("location:../controller/controllerUsuario.php");
     } else {
@@ -54,12 +56,7 @@ if ($opc == "Editar") {
     }
 }
 
-function setaDados($usuario, $nomeUsuario, $senha, $login ){
-    $usuario->setNome_usuario($nomeUsuario);
-    $usuario->setLogin($login);
-    $usuario->setSenha($senha);
 
-}
 } else {
     header("location:../index.php?&erro=\"Login\"");
 }

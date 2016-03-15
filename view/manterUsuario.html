@@ -20,7 +20,7 @@
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo {$nomeUsuario}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
+                    <nav id='infos'>Bem vindo {$usuario->getNome_usuario()}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
@@ -58,28 +58,28 @@
                 <section>
                     <div id="controladores">
                         <br/>
-                        {if $opc eq 'Editar'}
-                        <h1>Editar o usuário {$nomeUsuario}</h1>
+                        {if $opc == 'Editar'}
+                        <h1>Editar o usuário {$usuarioNovo->getNome_usuario()}</h1>
                         <form action="../controller/manterUsuario.php?cod={$cod}&opc={$opc}" method="post">
                             {else}
-                            <h1>Registro de novo Tipo</h1>
+                            <h1>Registro de novo Usuário</h1>
                             <form action="../controller/manterUsuario.php?opc={$opc}" method="post">
                                 {/if}
                                 <table class="table">
                                     <tr>
                                         
                                         <td><label for='nome'>Nome</label></td>
-                                        <td><input class="form-control" type='text' id='nome' name='nome' {if $opc eq 'Editar'}value="{$nomeUsuario}"{/if}/></td>
+                                        <td><input class="form-control" type='text' id='nome' name='nome' {if $opc eq 'Editar'}value="{$usuarioNovo->getNome_usuario()}"{/if}/></td>
                                     </tr>
                                     <tr>
                                         
                                         <td><label for='login'>Login</label></td>
-                                        <td><input class="form-control" type='text' id='login' name='login' {if $opc eq 'Editar'}value="{$login}"{/if}/></td>
+                                        <td><input class="form-control" type='text' id='login' name='login' {if $opc eq 'Editar'}value="{$usuarioNovo->getLogin()}"{/if}/></td>
                                     </tr>
                                     <tr>
                                         
                                         <td><label for='senha'>Senha</label></td>
-                                        <td><input class="form-control" type='password' id='senha' name='senha' {if $opc eq 'Editar'}value="{$nomeTipo}"{/if}/></td>
+                                        <td><input class="form-control" type='password' id='senha' name='senha' {if $opc eq 'Editar'}value="{$usuarioNovo->getSenha()}"{/if}/></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"><input class="btn" type="submit" value="Confirmar Operação"/>

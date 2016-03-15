@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-15 00:53:15
+<?php /* Smarty version 3.1.24, created on 2016-03-15 02:21:27
          compiled from "F:/xampp/htdocs/SCJ/view/manterUsuario.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1062756e74eeb310fc7_00921445%%*/
+/*%%SmartyHeaderCode:2990456e76397dcd997_13565880%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,29 +9,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5094f554ca7d2c2107311f6499779df3d9a5c527' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterUsuario.html',
-      1 => 1457999510,
+      1 => 1458004884,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1062756e74eeb310fc7_00921445',
+  'nocache_hash' => '2990456e76397dcd997_13565880',
   'variables' => 
   array (
-    'nomeUsuario' => 0,
     'usuario' => 0,
     'opc' => 0,
+    'usuarioNovo' => 0,
     'cod' => 0,
-    'login' => 0,
-    'nomeTipo' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56e74eeb34ba37_59147238',
+  'unifunc' => 'content_56e76397e08025_78408098',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56e74eeb34ba37_59147238')) {
-function content_56e74eeb34ba37_59147238 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56e76397e08025_78408098')) {
+function content_56e76397e08025_78408098 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1062756e74eeb310fc7_00921445';
+$_smarty_tpl->properties['nocache_hash'] = '2990456e76397dcd997_13565880';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -63,7 +61,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1062756e74eeb310fc7_00921445';
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['nomeUsuario']->value;?>
+                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['usuario']->value->getNome_usuario();?>
 <br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
@@ -104,13 +102,13 @@ $_smarty_tpl->properties['nocache_hash'] = '1062756e74eeb310fc7_00921445';
                     <div id="controladores">
                         <br/>
                         <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>
-                        <h1>Editar o usuário <?php echo $_smarty_tpl->tpl_vars['nomeUsuario']->value;?>
+                        <h1>Editar o usuário <?php echo $_smarty_tpl->tpl_vars['usuarioNovo']->value->getNome_usuario();?>
 </h1>
                         <form action="../controller/manterUsuario.php?cod=<?php echo $_smarty_tpl->tpl_vars['cod']->value;?>
 &opc=<?php echo $_smarty_tpl->tpl_vars['opc']->value;?>
 " method="post">
                             <?php } else { ?>
-                            <h1>Registro de novo Tipo</h1>
+                            <h1>Registro de novo Usuário</h1>
                             <form action="../controller/manterUsuario.php?opc=<?php echo $_smarty_tpl->tpl_vars['opc']->value;?>
 " method="post">
                                 <?php }?>
@@ -118,19 +116,19 @@ $_smarty_tpl->properties['nocache_hash'] = '1062756e74eeb310fc7_00921445';
                                     <tr>
                                         
                                         <td><label for='nome'>Nome</label></td>
-                                        <td><input class="form-control" type='text' id='nome' name='nome' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['nomeUsuario']->value;?>
+                                        <td><input class="form-control" type='text' id='nome' name='nome' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['usuarioNovo']->value->getNome_usuario();?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
                                         
                                         <td><label for='login'>Login</label></td>
-                                        <td><input class="form-control" type='text' id='login' name='login' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['login']->value;?>
+                                        <td><input class="form-control" type='text' id='login' name='login' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['usuarioNovo']->value->getLogin();?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
                                         
                                         <td><label for='senha'>Senha</label></td>
-                                        <td><input class="form-control" type='password' id='senha' name='senha' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['nomeTipo']->value;?>
+                                        <td><input class="form-control" type='password' id='senha' name='senha' <?php if ($_smarty_tpl->tpl_vars['opc']->value == 'Editar') {?>value="<?php echo $_smarty_tpl->tpl_vars['usuarioNovo']->value->getSenha();?>
 "<?php }?>/></td>
                                     </tr>
                                     <tr>
