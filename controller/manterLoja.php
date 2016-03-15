@@ -46,13 +46,29 @@ if ($opc != "Remover") {
 if ($opc == "Editar") {
     $cod = addslashes(trim($_GET['cod']));
     $loja = Loja::listaLoja($cod);
-    setaDados($loja, $nomeLoja, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento);
+    $loja->setNome_loja($nomeLoja);
+    $loja->setTelefone($tel);
+    $loja->setLogradouro($rua);
+    $loja->setBairro($bairro);
+    $loja->setCidade($cidade);
+    $loja->setCep($cep);
+    $loja->setEstado($estado);
+    $loja->setNumero($numero);
+    $loja->setComplemento($complemento);
     Loja::editaLoja($loja);
     header("location:../controller/controllerLoja.php");
 } else {
     if ($opc == "Incluir") {
         $loja = new Loja();
-        setaDados($loja, $nomeLoja, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento);
+    $loja->setNome_loja($nomeLoja);
+    $loja->setTelefone($tel);
+    $loja->setLogradouro($rua);
+    $loja->setBairro($bairro);
+    $loja->setCidade($cidade);
+    $loja->setCep($cep);
+    $loja->setEstado($estado);
+    $loja->setNumero($numero);
+    $loja->setComplemento($complemento);
         Loja::insereLoja($loja);
         header("location:../controller/controllerLoja.php");
     } else {
@@ -67,17 +83,7 @@ if ($opc == "Editar") {
     }
 }
 
-function setaDados($loja, $nomeLoja, $tel, $rua, $bairro, $cidade, $cep, $estado, $numero, $complemento) {
-    $loja->setNome_loja($nomeLoja);
-    $loja->setTelefone($tel);
-    $loja->setLogradouro($rua);
-    $loja->setBairro($bairro);
-    $loja->setCidade($cidade);
-    $loja->setCep($cep);
-    $loja->setEstado($estado);
-    $loja->setNumero($numero);
-    $loja->setComplemento($complemento);
-}
+
 } else {
     header("location:../index.php?&erro=\"Login\"");
 }
