@@ -5,6 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
+
+if ($_SESSION['login'] == "true") {
 
 $pasta = addslashes(trim($_POST['novaPasta']));
 $local = addslashes(trim($_GET['dir']));
@@ -13,3 +16,7 @@ $novaPasta = $local."/".$pasta;
 mkdir($novaPasta);
 
 header("location:../controller/controllerPasta.php?cod=$cod");
+
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

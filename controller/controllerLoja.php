@@ -2,9 +2,18 @@
 
 require_once '../configs/sm.php';
 include_once '../model/Loja.php';
+include_once '../model/Usuario.php';
+session_start();
 
-$lojas = Loja::listaLojas();
+if ($_SESSION['login'] == "true") {
+    $usuario = Usuario::listaUsuario($_SESSION['usuario']);
+    $sm->assign("usuario", $usuario);
 
-$sm->assign("lojas",$lojas);
+    $lojas = Loja::listaLojas();
 
-$sm->display('../view/loja.html');
+    $sm->assign("lojas", $lojas);
+
+    $sm->display('../view/loja.html');
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

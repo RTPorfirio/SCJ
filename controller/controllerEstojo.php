@@ -14,7 +14,12 @@ include_once '../model/Tipo.php';
 include_once '../model/Cor.php';
 include_once '../model/Pedra.php';
 include_once '../model/Loja.php';
+include_once '../model/Usuario.php';
+session_start();
 
+if ($_SESSION['login'] == "true") {
+$usuario = Usuario::listaUsuario($_SESSION['usuario']);
+$sm->assign("usuario",$usuario);
 
 
 $vendedor = Vendedor::listaVendedores();
@@ -71,10 +76,6 @@ while ($arquivo = $diretorio->read()) {
     $i++;
 }
 
-
-//exit();
-
-
 $diretorio->close();
 
 $sm->assign("arquivos", $link);
@@ -82,3 +83,6 @@ $sm->assign('venda', $precoTotal);
 $sm->assign('tipos', $tipos);
 $sm->assign('estojo', $joias);
 $sm->display("../view/estojo.php");
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

@@ -80,19 +80,20 @@ class UsuarioDao {
             return false;
     }
 
-    public static function Login($usuario) {
+    public static function Login($usuario,$senha) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $login = $conn->prepare("SELECT * FROM `usuario` WHERE login like :login and senha LIKE :senha");
-        $login->bindValue(":login", $usuario->getLogin(), PDO::PARAM_STR);
-        $login->bindValue(":senha", md5($usuario->getSenha()), PDO::PARAM_STR);
+        $login = $conn->prepare("select * from usuario where login=:login and senha=:senha");
+        $login->bindValue(":login", $usuario, PDO::PARAM_STR);
+        $login->bindValue(":senha", $senha, PDO::PARAM_STR);
         $login->execute();
         if ($login->rowCount() == 1) {
             $sm = $login->fetch(PDO::FETCH_ASSOC);
-            $usuario = self::CreateUser($sm);
+            $usuario = self::createUser($sm);
             return $usuario;
-        } else
-            return null;
+        } else {
+            $usuario = null;
+        }
     }
 
     private function CreateUser($sm) {

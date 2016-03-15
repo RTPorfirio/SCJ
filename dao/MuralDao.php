@@ -45,9 +45,8 @@ class MuralDao {
     public static function InsereMural($mural) {
         $conexao = new ConnectBD();
         $conn = $conexao->connectBD();
-        $insere = $conn->prepare("INSERT INTO `crisjoias`.`mural` (`id_mural`,`nome_mural`) VALUES (:id,:nome)");
+        $insere = $conn->prepare("INSERT INTO `crisjoias`.`mural` (`id_mural`,`nome_mural`) VALUES (1,:nome)");
         $insere->bindValue(":nome", $mural->getTexto(), PDO::PARAM_STR);
-        $insere->bindValue(":id", $mural->getId_mural(), PDO::PARAM_INT);
         if ($insere->execute() == 1)
             return true;
         else

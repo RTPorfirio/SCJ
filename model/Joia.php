@@ -32,7 +32,7 @@ class Joia {
     private $valida;
 
     function __construct() {
-        
+
         if (func_num_args() == 15) {
             $this->id_joia = func_get_arg(0);
             $this->preco_custo = func_get_arg(1);
@@ -181,8 +181,6 @@ class Joia {
         $this->cor = $cor;
     }
 
-    
-    
     function setPedra($pedra) {
         $this->pedra = $pedra;
     }
@@ -199,8 +197,8 @@ class Joia {
         return JoiaDao::listaJoia($joia);
     }
 
-    public static function listaJoiaQR($joia,$teste) {
-        return JoiaDao::listaJoiaQR($joia,$teste);
+    public static function listaJoiaQR($joia, $teste) {
+        return JoiaDao::listaJoiaQR($joia, $teste);
     }
 
     public static function insereJoia($joia) {
@@ -211,10 +209,10 @@ class Joia {
         return JoiaDao::EditaJoia($joia);
     }
 
-      public static function EditaValida($joia) {
+    public static function EditaValida($joia) {
         return JoiaDao::EditaValida($joia);
     }
-    
+
     public static function deletaJoia($joia) {
         return JoiaDao::deletaJoia($joia);
     }
@@ -222,4 +220,7 @@ class Joia {
     public static function SelecionaUltimoId() {
         return JoiaDao::SelecionaUltimoId();
     }
+
+  
+
 }

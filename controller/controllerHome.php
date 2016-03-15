@@ -1,12 +1,22 @@
 <?php
 
+
 require_once '../configs/sm.php';
 include_once '../model/Mural.php';
+include_once '../model/Usuario.php';
+session_start();
 
-$mural = Mural::listaMural(1);
+if ($_SESSION['login'] == "true") {
 
-$sm->assign("nome","Ricardo");
-$sm->assign("mural",$mural);
+    $usuario = Usuario::listaUsuario($_SESSION['usuario']);
 
-$sm->display('../view/home.html');
 
+    $mural = Mural::listaMural(1);
+
+    $sm->assign("usuario", $usuario);
+    $sm->assign("mural", $mural);
+
+    $sm->display('../view/home.html');
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

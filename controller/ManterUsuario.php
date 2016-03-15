@@ -8,6 +8,9 @@
 
 include_once '../configs/sm.php';
 include_once '../model/Usuario.php';
+session_start();
+
+if ($_SESSION['login'] == "true") {
 
 $opc = addslashes(trim($_GET['opc']));
 $usuario = new Usuario();
@@ -56,4 +59,7 @@ function setaDados($usuario, $nomeUsuario, $senha, $login ){
     $usuario->setLogin($login);
     $usuario->setSenha($senha);
 
+}
+} else {
+    header("location:../index.php?&erro=\"Login\"");
 }

@@ -9,6 +9,11 @@
 include_once '../configs/sm.php';
 include_once '../model/Cor.php';
 
+session_start();
+
+if ($_SESSION['login'] == "true") {
+    
+
 $opc = addslashes(trim($_GET['opc']));
 if($opc!="Remover")
     $nomeCor = addslashes(trim($_POST['nome']));
@@ -39,7 +44,9 @@ if ($opc == "Editar") {
     }
     
 }
-
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}
 
 
 

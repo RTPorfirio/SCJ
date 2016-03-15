@@ -146,6 +146,8 @@ class JoiaDao {
         $edita->bindValue(":valida", $joia->getValida(), PDO::PARAM_INT);
         $edita->execute();
     }
+    
+    
 
     private function CreateJoia($sm) {
         $joia = new joia(

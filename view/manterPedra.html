@@ -20,27 +20,28 @@
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo {$nome}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
+                    <nav id='infos'>Bem vindo {$usuario->getNome_usuario()}<br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
         <div class="container-fluid all">
 
-            <nav>   
+                        <nav>   
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Principal</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPerfil.php">Edital Perfíl</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php.php">Sair</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterUsuario.php?opc=Editar&cod={$usuario->getId_usuario()}">Edital Perfíl</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php">Sair</a></li>
                 </ul>
-
+                
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstojo.php">Gerar Estojo</a></li>
+                    <li class="list-group-item-info"><s class="list-group-item">Controle de estoque</s></li>
+                    <li class="list-group-item-info"><s class="list-group-item">Controle de Defeito</s></li>
+                    <li class="list-group-item-info"><s class="list-group-item">Gerar Estojo</s></li>
                 </ul>
 
 
@@ -64,14 +65,14 @@
                             <h1>Registro de nova Pedra</h1>
                             <form action="../controller/manterPedra.php?opc={$opc}" method="post">
                                 {/if}
-                                <table>
+                                <table class="table">
                                     <tr>
                                         
                                         <td><label for='nome'>Nome</label></td>
-                                        <td><input type='text' id='nome' name='nome' {if $opc eq 'Editar'}value="{$nomePedra}"{/if}/></td>
+                                        <td><input class="form-control" type='text' id='nome' name='nome' {if $opc eq 'Editar'}value="{$nomePedra}"{/if}/></td>
                                     </tr><br>
                                     <tr>
-                                        <td colspan="2"><input type="submit" value="Confirmar Operação"/>
+                                        <td colspan="2"><input type="submit" value="Confirmar Operação" class="btn"/>
                                     </tr>
                                 </table>
                             </form>

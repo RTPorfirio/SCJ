@@ -1,5 +1,6 @@
 <?php
 
+
 include_once '../inc/phpqrcode/qrlib.php';
 header("Content-type: image/png");
 
@@ -7,7 +8,7 @@ function geraEtiqueta($qrcode, $text, $preco) {
     $im = @imagecreate(114, 38)
             or die("Cannot Initialize new GD image stream");
 
-    $background_color = imagecolorallocate($im, 20, 243, 243);
+    $background_color = imagecolorallocate($im, 255,255,255);
 
     QRcode::png($qrcode, "../img.png", 2, 1.66, 1);
     $im2 = imagecreatefrompng("../img.png");
@@ -28,5 +29,7 @@ function geraEtiqueta($qrcode, $text, $preco) {
     
 
 }
+
+geraEtiqueta("1010", "f32f2q", "1000")
 
 ?>

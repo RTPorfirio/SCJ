@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-07 14:32:42
+<?php /* Smarty version 3.1.24, created on 2016-03-14 23:58:11
          compiled from "F:/xampp/htdocs/SCJ/view/estojo.php" */ ?>
 <?php
-/*%%SmartyHeaderCode:2760356dd82fa4342e6_63455800%%*/
+/*%%SmartyHeaderCode:270956e74203b4b8f6_28877960%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,14 +9,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd15191dd4736d3998aa265648d3d51b4c9767a6d' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/estojo.php',
-      1 => 1457357560,
+      1 => 1457996290,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2760356dd82fa4342e6_63455800',
+  'nocache_hash' => '270956e74203b4b8f6_28877960',
   'variables' => 
   array (
-    'nome' => 0,
+    'usuario' => 0,
     'vendedores' => 0,
     'vendedor' => 0,
     'tipos' => 0,
@@ -27,13 +27,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56dd82fa4b1cf5_80120254',
+  'unifunc' => 'content_56e74203b88195_14960807',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56dd82fa4b1cf5_80120254')) {
-function content_56dd82fa4b1cf5_80120254 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56e74203b88195_14960807')) {
+function content_56e74203b88195_14960807 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2760356dd82fa4342e6_63455800';
+$_smarty_tpl->properties['nocache_hash'] = '270956e74203b4b8f6_28877960';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -67,27 +67,29 @@ $_smarty_tpl->properties['nocache_hash'] = '2760356dd82fa4342e6_63455800';
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['usuario']->value->getNome_usuario();?>
 <br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
         <div class="container-fluid all">
 
-            <nav>   
+                       <nav>   
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Principal</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPerfil.php">Edital Perfíl</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php.php">Sair</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterUsuario.php?opc=Editar&cod=<?php echo $_smarty_tpl->tpl_vars['usuario']->value->getId_usuario();?>
+">Edital Perfíl</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php">Sair</a></li>
                 </ul>
-
+                
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerDefeito.php">Controle de Defeito</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstojo.php">Gerar Estojo</a></li>
                 </ul>
 

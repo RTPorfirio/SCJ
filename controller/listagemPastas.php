@@ -6,6 +6,13 @@
  * and open the template in the editor.
  */
 
+session_start();
+
+if ($_SESSION['login'] == "true") {
 $nome = $_GET['vendedor'];
 
 echo $nome;
+
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

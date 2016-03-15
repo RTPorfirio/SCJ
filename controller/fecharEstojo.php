@@ -9,6 +9,9 @@
 include_once '../model/Joia.php';
 include_once '../model/JoiaEstojo.php';
 include_once '../model/Transita.php';
+session_start();
+
+if ($_SESSION['login'] == "true") {
 
 
 
@@ -36,3 +39,7 @@ if ($dados) {
 
 echo $vendedor;
 echo $pasta;
+
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

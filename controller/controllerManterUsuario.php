@@ -8,6 +8,9 @@
 
 include_once '../configs/sm.php';
 include_once '../model/Usuario.php';
+session_start();
+
+if ($_SESSION['login'] == "true") {
 
 $opc = addslashes(trim($_GET['opc']));
 
@@ -17,6 +20,7 @@ if ($opc == "Editar") {
     
     $usuario = Usuario::listaUsuario($cod);
     
+    $sm->assign("usuario",$usuario);
     $sm->assign("nomeUsuario", $usuario->getNome_usuario());
     $sm->assign("login", $usuario->getLogin());
     
@@ -33,4 +37,7 @@ if ($opc == "Editar") {
         $sm->assign("tipo", "Usuario");
         $sm->display("../view/remover.html");
     }
+}
+}else {
+    header("location:../index.php?&erro=\"Login\"");
 }

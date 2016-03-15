@@ -10,7 +10,9 @@ include_once '../configs/Upload.php';
 include_once '../model/Joia.php';
 include_once '../configs/geraEtiqueta.php';
 
+session_start();
 
+if ($_SESSION['login'] == "true") {
 
 $upLoad = new Upload($_FILES["imagem"]);
 
@@ -31,13 +33,19 @@ if (isset($_POST['gerar'])) {
     $tamanho = addslashes(trim($_POST['tamanho']));
     $obs = addslashes(trim($_POST['obs']));
 
+
+    
     if ($consig) {
         $consig = "c";
     } else {
         $consig = "";
-    }
+    }    
+    
 
     $codBase = $consig . $tipo . $pedra . $cor . $fornecedor;
+    
+  
+    
     $codBaseOriginal = $codBase;
     $qrCode = $codBase . "R$" . $pVenda;
     $qrCodeOriginal = $qrCode;
@@ -53,18 +61,19 @@ if (Joia::SelecionaUltimoId()['MAX(id_joia)'] == "") {
 for ($i = 1; $i <= $qnt; $i++) {
 
     $codBase = $codBase . $j;
+
+    $j++;
     $qrCode = $codBase . "R$" . $pVenda;
     $joia = new Joia($pCusto, $pVenda, $consig, $notaFiscal, $obs, $codBase, $qrCode, $tamanho, $imagem,$tipo,$fornecedor,$cor,$pedra,1);
-    //$joia->insereJoia($joia);   
-    $codBase = $codBaseOriginal;
-    $qrCode = $qrCodeOriginal;
-    
-  
+    $joia->insereJoia($joia);
     geraEtiqueta($qrCode, $codBase, $pVenda);
-
-        
+    $codBase = $codBaseOriginal;
+    $qrCode = $qrCodeOriginal;        
 }
 
 $upLoad->makeUpload();
 
 header("location:../controller/controllerHome.php");
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}

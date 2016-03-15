@@ -11,7 +11,9 @@
 include_once '../model/Transita.php';
 include_once '../model/Joia.php';
 
+session_start();
 
+if ($_SESSION['login'] == "true") {
 
     $cod = $_POST['s'];
 
@@ -26,3 +28,7 @@ include_once '../model/Joia.php';
 
 
     header("location:../controller/controllerEstojo.php");
+
+    } else {
+    header("location:../index.php?&erro=\"Login\"");
+}

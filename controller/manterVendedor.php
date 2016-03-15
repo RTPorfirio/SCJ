@@ -9,6 +9,10 @@
 include_once '../configs/sm.php';
 include_once '../model/Vendedor.php';
 
+session_start();
+
+if ($_SESSION['login'] == "true") {
+
 $opc = addslashes(trim($_GET['opc']));
 $vendedor = new Vendedor();
 
@@ -85,4 +89,7 @@ function setaDados($vendedor, $nomeVendedor, $tel, $rua, $bairro, $cidade, $cep,
     $vendedor->setCpf($cpf);
     $vendedor->setCelular($celular);
     $vendedor->setPasta($pasta);
+}
+} else {
+    header("location:../index.php?&erro=\"Login\"");
 }

@@ -8,39 +8,49 @@
 
 include_once '../configs/sm.php';
 include_once '../model/Vendedor.php';
+include_once '../model/Usuario.php';
+session_start();
 
-$opc = addslashes(trim($_GET['opc']));
+if ($_SESSION['login'] == "true") {
+$usuario = Usuario::listaUsuario($_SESSION['usuario']);
+$sm->assign("usuario",$usuario);
 
 
-if ($opc == "Editar") {
-    $cod = addslashes(trim($_GET['cod']));
+    $opc = addslashes(trim($_GET['opc']));
 
-    $vendedor = Vendedor::listaVendedor($cod);
 
-    $sm->assign("nomeVendedor", $vendedor->getNome_vendedor());
-    $sm->assign("bairro", $vendedor->getBairro());
-    $sm->assign("cep", $vendedor->getCep());
-    $sm->assign("cidade", $vendedor->getCidade());
-    $sm->assign("cmp", $vendedor->getComplemento());
-    $sm->assign("estado", $vendedor->getEstado());
-    $sm->assign("rua", $vendedor->getLogradouro());
-    $sm->assign("numero", $vendedor->getNumero());
-    $sm->assign("telefone", $vendedor->getTelefone());
-    $sm->assign("celular", $vendedor->getCelular());
-    $sm->assign("rg", $vendedor->getRg());
-    $sm->assign("cpf", $vendedor->getCpf());
+    if ($opc == "Editar") {
+        $cod = addslashes(trim($_GET['cod']));
 
-    $sm->assign("cod", $cod);
-    $sm->assign("opc", $opc);
-    $sm->display("../view/manterVendedor.html");
-} else {
-    if ($opc == "Incluir") {
+        $vendedor = Vendedor::listaVendedor($cod);
+
+        $sm->assign("nomeVendedor", $vendedor->getNome_vendedor());
+        $sm->assign("bairro", $vendedor->getBairro());
+        $sm->assign("cep", $vendedor->getCep());
+        $sm->assign("cidade", $vendedor->getCidade());
+        $sm->assign("cmp", $vendedor->getComplemento());
+        $sm->assign("estado", $vendedor->getEstado());
+        $sm->assign("rua", $vendedor->getLogradouro());
+        $sm->assign("numero", $vendedor->getNumero());
+        $sm->assign("telefone", $vendedor->getTelefone());
+        $sm->assign("celular", $vendedor->getCelular());
+        $sm->assign("rg", $vendedor->getRg());
+        $sm->assign("cpf", $vendedor->getCpf());
+
+        $sm->assign("cod", $cod);
         $sm->assign("opc", $opc);
         $sm->display("../view/manterVendedor.html");
     } else {
-        $cod = addslashes(trim($_GET['cod']));
-        $sm->assign("cod", $cod);
-        $sm->assign("tipo", "Vendedor");
-        $sm->display("../view/remover.html");
+        if ($opc == "Incluir") {
+            $sm->assign("opc", $opc);
+            $sm->display("../view/manterVendedor.html");
+        } else {
+            $cod = addslashes(trim($_GET['cod']));
+            $sm->assign("cod", $cod);
+            $sm->assign("tipo", "Vendedor");
+            $sm->display("../view/remover.html");
+        }
     }
+} else {
+    header("location:../index.php?&erro=\"Login\"");
 }

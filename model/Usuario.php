@@ -103,8 +103,8 @@ class Usuario {
         return UsuarioDao::deletaUsuario($id_usuario);
     }
 
-    public static function Login($this) {
-        return UsuarioDao::Login($this);
+    public static function Login($usuario,$senha) {
+        return UsuarioDao::Login($usuario,$senha);
     }
 
 }

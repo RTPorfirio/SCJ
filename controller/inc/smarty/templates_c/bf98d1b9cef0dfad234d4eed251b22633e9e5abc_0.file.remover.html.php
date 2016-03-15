@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-04 06:39:01
+<?php /* Smarty version 3.1.24, created on 2016-03-15 00:07:27
          compiled from "F:/xampp/htdocs/SCJ/view/remover.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:319256d91f751e6748_70868833%%*/
+/*%%SmartyHeaderCode:1308656e7442fdf0051_68879603%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,26 +9,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bf98d1b9cef0dfad234d4eed251b22633e9e5abc' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/remover.html',
-      1 => 1454362337,
+      1 => 1457996758,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '319256d91f751e6748_70868833',
+  'nocache_hash' => '1308656e7442fdf0051_68879603',
   'variables' => 
   array (
-    'nome' => 0,
+    'usuario' => 0,
     'tipo' => 0,
     'cod' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56d91f75225648_20968992',
+  'unifunc' => 'content_56e7442fe21bb3_65743447',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56d91f75225648_20968992')) {
-function content_56d91f75225648_20968992 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56e7442fe21bb3_65743447')) {
+function content_56e7442fe21bb3_65743447 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '319256d91f751e6748_70868833';
+$_smarty_tpl->properties['nocache_hash'] = '1308656e7442fdf0051_68879603';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -60,27 +60,29 @@ $_smarty_tpl->properties['nocache_hash'] = '319256d91f751e6748_70868833';
                 <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
-                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+                    <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['usuario']->value->getNome_usuario();?>
 <br /> <a href="../controller/controllerLogout.php">Sair do Sistema</a></nav>
                 </div>
             </div>
         </header>
         <div class="container-fluid all">
 
-            <nav>   
+                       <nav>   
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Principal</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerPerfil.php">Edital Perfíl</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php.php">Sair</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterUsuario.php?opc=Editar&cod=<?php echo $_smarty_tpl->tpl_vars['usuario']->value->getId_usuario();?>
+">Edital Perfíl</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php">Sair</a></li>
                 </ul>
-
+                
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
+                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerDefeito.php">Controle de Defeito</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstojo.php">Gerar Estojo</a></li>
                 </ul>
 

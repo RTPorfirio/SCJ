@@ -8,6 +8,12 @@
 
 include_once '../configs/sm.php';
 include_once '../model/Loja.php';
+include_once '../model/Usuario.php';
+session_start();
+
+if ($_SESSION['login'] == "true") {
+$usuario = Usuario::listaUsuario($_SESSION['usuario']);
+$sm->assign("usuario", $usuario);
 
 $opc = addslashes(trim($_GET['opc']));
 $loja = new Loja();
@@ -71,4 +77,7 @@ function setaDados($loja, $nomeLoja, $tel, $rua, $bairro, $cidade, $cep, $estado
     $loja->setEstado($estado);
     $loja->setNumero($numero);
     $loja->setComplemento($complemento);
+}
+} else {
+    header("location:../index.php?&erro=\"Login\"");
 }

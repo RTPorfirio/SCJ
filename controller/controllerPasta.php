@@ -8,7 +8,12 @@
 
 include_once '../model/Vendedor.php';
 require_once '../configs/sm.php';
+include_once '../model/Usuario.php';
+session_start();
 
+if ($_SESSION['login'] == "true") {
+$usuario = Usuario::listaUsuario($_SESSION['usuario']);
+$sm->assign("usuario", $usuario);
 
 $cod = addslashes(trim($_GET['cod']));
 
@@ -44,3 +49,7 @@ $diretorio->close();
 
 
 $sm->display('../view/manterPasta.html');
+
+} else {
+    header("location:../index.php?&erro=\"Login\"");
+}
