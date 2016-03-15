@@ -87,7 +87,6 @@ class VendedorDao {
         $edita->bindValue(":estado", $vendedor->getEstado(), PDO::PARAM_STR);
         $edita->bindValue(":cep", $vendedor->getCep(), PDO::PARAM_STR);
 
-        $edita->bindValue(":pasta", $vendedor->getPasta(), PDO::PARAM_STR);
 
         if ($edita->execute() == 1)
             return true;

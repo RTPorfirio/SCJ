@@ -66,6 +66,8 @@ if ($_SESSION['login'] == "true") {
         $vendedor->setCelular($celular);
         $vendedor->setPasta($pasta);
 
+        
+        
         Vendedor::EditaVendedor($vendedor);
         header("location:../controller/controllerVendedor.php");
     } else {
