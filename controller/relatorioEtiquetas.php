@@ -11,7 +11,7 @@ function geraEtiquetasPDF($qrcode, $qnt,$nome) {
     $pdf->AddPage();
 
     $posY = 3;
-    $posX = 3;
+    $posX = 5;
     $controle = 0;
     $qntElementos = 1;
     for ($k = 1; $k <= 80; $k+=4) { // linha

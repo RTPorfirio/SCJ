@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-15 01:42:33
+<?php /* Smarty version 3.1.24, created on 2016-03-21 02:59:56
          compiled from "F:/xampp/htdocs/SCJ/view/manterVendedor.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:2675156e75a791cd681_07413356%%*/
+/*%%SmartyHeaderCode:2742856ef559c55fc62_14716326%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f1f0b1235c3046954722ee90840b1f46ec6dd6e8' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterVendedor.html',
-      1 => 1457999523,
+      1 => 1458525566,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2675156e75a791cd681_07413356',
+  'nocache_hash' => '2742856ef559c55fc62_14716326',
   'variables' => 
   array (
     'usuario' => 0,
@@ -34,13 +34,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56e75a79223316_86660264',
+  'unifunc' => 'content_56ef559c65bc81_30119299',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56e75a79223316_86660264')) {
-function content_56e75a79223316_86660264 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56ef559c65bc81_30119299')) {
+function content_56ef559c65bc81_30119299 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2675156e75a791cd681_07413356';
+$_smarty_tpl->properties['nocache_hash'] = '2742856ef559c55fc62_14716326';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -62,6 +62,9 @@ $_smarty_tpl->properties['nocache_hash'] = '2675156e75a791cd681_07413356';
 >
         <?php echo '<script'; ?>
  type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/cep.js"><?php echo '</script'; ?>
 >
 
 

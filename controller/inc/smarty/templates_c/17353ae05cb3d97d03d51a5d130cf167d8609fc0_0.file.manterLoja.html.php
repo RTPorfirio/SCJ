@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-15 00:38:35
+<?php /* Smarty version 3.1.24, created on 2016-03-21 03:04:59
          compiled from "F:/xampp/htdocs/SCJ/view/manterLoja.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1601756e74b7bd9e382_32271551%%*/
+/*%%SmartyHeaderCode:1911356ef56cb6ac622_11183251%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '17353ae05cb3d97d03d51a5d130cf167d8609fc0' => 
     array (
       0 => 'F:/xampp/htdocs/SCJ/view/manterLoja.html',
-      1 => 1457998713,
+      1 => 1458525896,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1601756e74b7bd9e382_32271551',
+  'nocache_hash' => '1911356ef56cb6ac622_11183251',
   'variables' => 
   array (
     'usuario' => 0,
@@ -31,13 +31,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56e74b7bdddd41_72325745',
+  'unifunc' => 'content_56ef56cb70f4a5_17070779',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56e74b7bdddd41_72325745')) {
-function content_56e74b7bdddd41_72325745 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56ef56cb70f4a5_17070779')) {
+function content_56ef56cb70f4a5_17070779 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1601756e74b7bd9e382_32271551';
+$_smarty_tpl->properties['nocache_hash'] = '1911356ef56cb6ac622_11183251';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -59,6 +59,9 @@ $_smarty_tpl->properties['nocache_hash'] = '1601756e74b7bd9e382_32271551';
 >
         <?php echo '<script'; ?>
  type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/cep.js"><?php echo '</script'; ?>
 >
 
 
@@ -90,9 +93,9 @@ $_smarty_tpl->properties['nocache_hash'] = '1601756e74b7bd9e382_32271551';
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerUsuario.php">Cadastro de Usuário</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerVendedor.php">Cadastro de Vendedor</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstoque.php">Controle de estoque</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerDefeito.php">Controle de Defeito</a></li>
-                    <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerEstojo.php">Gerar Estojo</a></li>
+                    <li class="list-group-item-info"><s class="list-group-item">Controle de estoque</s></li>
+                    <li class="list-group-item-info"><s class="list-group-item">Controle de Defeito</s></li>
+                    <li class="list-group-item-info"><s class="list-group-item">Gerar Estojo</s></li>
                 </ul>
 
 
