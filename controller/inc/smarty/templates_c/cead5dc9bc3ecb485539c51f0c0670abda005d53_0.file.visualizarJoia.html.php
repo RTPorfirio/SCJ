@@ -1,34 +1,34 @@
-<?php /* Smarty version 3.1.24, created on 2016-03-21 20:48:43
-         compiled from "F:/xampp/htdocs/SCJ/view/cor.html" */ ?>
+<?php /* Smarty version 3.1.24, created on 2016-03-21 20:51:37
+         compiled from "F:/xampp/htdocs/SCJ/view/visualizarJoia.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1985056f0501b6c40f1_06631626%%*/
+/*%%SmartyHeaderCode:2664856f050c938d6c4_19318397%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '3dcae07e1f119d05359f767be369b5c758595974' => 
+    'cead5dc9bc3ecb485539c51f0c0670abda005d53' => 
     array (
-      0 => 'F:/xampp/htdocs/SCJ/view/cor.html',
-      1 => 1458589705,
+      0 => 'F:/xampp/htdocs/SCJ/view/visualizarJoia.html',
+      1 => 1458589884,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1985056f0501b6c40f1_06631626',
+  'nocache_hash' => '2664856f050c938d6c4_19318397',
   'variables' => 
   array (
     'usuario' => 0,
-    'cores' => 0,
-    'cor' => 0,
+    'joias' => 0,
+    'joia' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.24',
-  'unifunc' => 'content_56f0501b7063e2_04096683',
+  'unifunc' => 'content_56f050c93cda75_35959703',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56f0501b7063e2_04096683')) {
-function content_56f0501b7063e2_04096683 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56f050c93cda75_35959703')) {
+function content_56f050c93cda75_35959703 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1985056f0501b6c40f1_06631626';
+$_smarty_tpl->properties['nocache_hash'] = '2664856f050c938d6c4_19318397';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -51,13 +51,16 @@ $_smarty_tpl->properties['nocache_hash'] = '1985056f0501b6c40f1_06631626';
         <?php echo '<script'; ?>
  type="text/javascript" src="../view/javascripts/scripts.js"><?php echo '</script'; ?>
 >
+        <?php echo '<script'; ?>
+ type="text/javascript" src="../view/javascripts/ajax.js"><?php echo '</script'; ?>
+>
 
 
     </head>
     <body>
         <header>
             <div>
-                <div id='logo'></div><
+                <div id='logo'></div>
                 <div id='right'>
                     <div id='curva'></div>
                     <nav id='infos'>Bem vindo <?php echo $_smarty_tpl->tpl_vars['usuario']->value->getNome_usuario();?>
@@ -67,7 +70,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1985056f0501b6c40f1_06631626';
         </header>
         <div class="container-fluid all">
 
-                       <nav>   
+            <nav>   
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Principal</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
@@ -75,7 +78,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1985056f0501b6c40f1_06631626';
 ">Edital Perfíl</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php">Sair</a></li>
                 </ul>
-                
+
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
@@ -101,36 +104,42 @@ $_smarty_tpl->properties['nocache_hash'] = '1985056f0501b6c40f1_06631626';
                 <section>
                     <div id="controladores">
                         <br/>
-                        <h1>Controle de Cores</h1>
-                        <table class="table">
-                            <tr>
-                                <td class="all">Nome da Cor</td>
-                                <td class="all">Opção</td>
-                            </tr>
-                            <?php
-$_from = $_smarty_tpl->tpl_vars['cores']->value;
+                        <?php echo '<script'; ?>
+ language="javascript">
+                            var win = null;
+                            function NovaJanela(pagina, nome, w, h, scroll) {
+                                LeftPosition = (screen.width) ? (screen.width - w) / 2 : 0;
+                                TopPosition = (screen.height) ? (screen.height - h) / 2 : 0;
+                                settings = 'height=' + h + ',width=' + w + ',top=' + TopPosition + ',left=' + LeftPosition + ',scrollbars=' + scroll + ',resizable'
+                                win = window.open(pagina, nome, settings);
+                            }
+                        <?php echo '</script'; ?>
+>
+                        <h1>Visualizar as Jóias</h1>
+                        <hr>
+                        <?php
+$_from = $_smarty_tpl->tpl_vars['joias']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
-$_smarty_tpl->tpl_vars['cor'] = new Smarty_Variable;
-$_smarty_tpl->tpl_vars['cor']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['cor']->value) {
-$_smarty_tpl->tpl_vars['cor']->_loop = true;
-$foreach_cor_Sav = $_smarty_tpl->tpl_vars['cor'];
+$_smarty_tpl->tpl_vars['joia'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['joia']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['joia']->value) {
+$_smarty_tpl->tpl_vars['joia']->_loop = true;
+$foreach_joia_Sav = $_smarty_tpl->tpl_vars['joia'];
 ?>
-                            <tr>
-                                <td><?php echo $_smarty_tpl->tpl_vars['cor']->value->getNome_cor();?>
-</td>
-                                <td><a href="../controller/controllerManterCor.php?opc=Editar&cod=<?php echo $_smarty_tpl->tpl_vars['cor']->value->getId_cor();?>
-">Editar</a> || <a href="../controller/controllerManterCor.php?opc=Remover&cod=<?php echo $_smarty_tpl->tpl_vars['cor']->value->getId_cor();?>
-">Remover</a></td>
-                            </tr>
-                            <?php
-$_smarty_tpl->tpl_vars['cor'] = $foreach_cor_Sav;
+                        <a onclick="NovaJanela('controllerListaJoiaIndividual.php?loja=<?php echo $_smarty_tpl->tpl_vars['joia']->value->getLoja();?>
+&cor=<?php echo $_smarty_tpl->tpl_vars['joia']->value->getCor();?>
+&pedra=<?php echo $_smarty_tpl->tpl_vars['joia']->value->getPedra();?>
+&tipo=<?php echo $_smarty_tpl->tpl_vars['joia']->value->getTipo();?>
+&id=<?php echo $_smarty_tpl->tpl_vars['joia']->value->getId_joia();?>
+','Exibição de Jóia','450','600','yes');return false"><img src="../joias/<?php echo $_smarty_tpl->tpl_vars['joia']->value->getImagem();?>
+" class="img-thumbnail" width="200px" height="200px"></a>
+                        <?php
+$_smarty_tpl->tpl_vars['joia'] = $foreach_joia_Sav;
 }
 ?>
-                        </table>
-                        <a href="../controller/controllerManterCor.php?opc=Incluir" >Cadastrar nova pedra</a>
+
                     </div>
 
                 </section>

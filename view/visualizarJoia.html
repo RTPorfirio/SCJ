@@ -11,6 +11,7 @@
         <script type="text/javascript" src="../view/javascripts/html5-qrcode.min.js"></script>
         <script type="text/javascript" src="../view/javascripts/main.js"></script>
         <script type="text/javascript" src="../view/javascripts/scripts.js"></script>
+        <script type="text/javascript" src="../view/javascripts/ajax.js"></script>
 
 
     </head>
@@ -26,14 +27,14 @@
         </header>
         <div class="container-fluid all">
 
-                        <nav>   
+            <nav>   
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Principal</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerHome.php">Página Inicial</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterUsuario.php?opc=Editar&cod={$usuario->getId_usuario()}">Edital Perfíl</a></li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerLogout.php">Sair</a></li>
                 </ul>
-                
+
                 <ul >
                     <li class='list-group-item list-group-item-warning '>Cadastro</li>
                     <li class="list-group-item-info"><a class="list-group-item"  href="../controller/controllerManterJoia.php">Cadastro de Jóia</a></li>
@@ -59,20 +60,21 @@
                 <section>
                     <div id="controladores">
                         <br/>
-                        <h1>Controle de Tipos</h1>
-                        <table class='table'>
-                            <tr>
-                                <td class="all">Nome do Tipo</td>
-                                <td class="all">Opção</td>
-                            </tr>
-                            {foreach $tipos as $tipo }
-                            <tr>
-                                <td>{$tipo->getNome_tipo()}</td>
-                                <td><a href="../controller/controllerManterTipo.php?opc=Editar&cod={$tipo->getId_tipo()}">Editar</a> || <a href="../controller/controllerManterTipo.php?opc=Remover&cod={$tipo->getId_tipo()}">Remover</a></td>
-                            </tr>
-                            {/foreach}
-                        </table>
-                        <a href="../controller/controllerManterTipo.php?opc=Incluir">Cadastrar novo tipo</a>
+                        <script language="javascript">
+                            var win = null;
+                            function NovaJanela(pagina, nome, w, h, scroll) {
+                                LeftPosition = (screen.width) ? (screen.width - w) / 2 : 0;
+                                TopPosition = (screen.height) ? (screen.height - h) / 2 : 0;
+                                settings = 'height=' + h + ',width=' + w + ',top=' + TopPosition + ',left=' + LeftPosition + ',scrollbars=' + scroll + ',resizable'
+                                win = window.open(pagina, nome, settings);
+                            }
+                        </script>
+                        <h1>Visualizar as Jóias</h1>
+                        <hr>
+                        {foreach $joias as $joia}
+                        <a onclick="NovaJanela('controllerListaJoiaIndividual.php?loja={$joia->getLoja()}&cor={$joia->getCor()}&pedra={$joia->getPedra()}&tipo={$joia->getTipo()}&id={$joia->getId_joia()}','Exibição de Jóia','450','600','yes');return false"><img src="../joias/{$joia->getImagem()}" class="img-thumbnail" width="200px" height="200px"></a>
+                        {/foreach}
+
                     </div>
 
                 </section>

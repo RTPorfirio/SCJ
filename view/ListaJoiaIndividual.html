@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>{$joia->getQr_code()}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../view/css/bootstrap.css">
+    </head>
+    <body>
+    <center><img src="../joias/{$joia->getImagem()}" width="300px" height="300px" class="img-rounded"></center>
+    <br>
+    <table class="table" border="1">
+        <tr>
+            <td>Qrcode</td>
+            <td>{$joia->getQr_code()}</td>
+        </tr>
+        <tr>
+            <td>Tipo</td>
+            <td>{$tipo->getNome_tipo()}</td>
+        </tr>
+        <tr>
+            <td>Fornecedor</td>
+            <td>{$loja->getNome_loja()}</td>
+        </tr>
+        <tr>
+            <td>Pedra</td>
+            <td>{$pedra->getNome_pedra()}</td>
+        </tr>
+        <tr>
+            <td>Cor</td>
+            <td>{$cor->getNome_cor()}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><center><img src="../etiquetas/{$joia->getQr_code()}.png"></center></td>
+        </tr>
+    </table>
+</body>
+</html>

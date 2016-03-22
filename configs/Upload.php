@@ -45,7 +45,7 @@ class Upload {
     function makeUpload() {
         if (isset($this->_file)) {
             $nome = $this->_file["name"];
-            @$fileName = self::_FOLDER_DIR . "_" . $this->nome;
+            @$fileName = self::_FOLDER_DIR  . $this->nome;
             if (is_uploaded_file($this->_file["tmp_name"])) {
                 if (move_uploaded_file($this->_file["tmp_name"], $fileName)) {
                     return true;
